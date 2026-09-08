@@ -1,0 +1,45 @@
+name: Portfolio CI
+
+on:
+  push:
+    branches: ["main"]
+    paths:
+      - "portfolio-projects/**"
+      - ".github/workflows/portfolio-ci.yml"
+  pull_request:
+    paths:
+      - "portfolio-projects/**"
+      - ".github/workflows/portfolio-ci.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        project:
+          - makma-ai-os
+          - agentic-rag-engine
+          - multimodal-ai-studio
+          - knowledge-twin
+          - clinical-document-intelligence
+          - mlops-production-pipeline
+
+    defaults:
+      run:
+        working-directory: portfolio-projects/${{ matrix.project }}
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install project
+        run: python -m pip install -e ".[dev]"
+      - name: Lint
+        run: ruff check .
+      - name: Test
+        run: pytest -q
