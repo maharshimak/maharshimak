@@ -120,6 +120,83 @@ Full-stack intelligent applications with **modern web interfaces, APIs, data inf
 </tr>
 </table>
 
+
+---
+
+## 🚀 Featured Engineering Portfolio
+
+<div align="center">
+
+[![Portfolio CI](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml)
+
+</div>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🦾 [Mak'ma AI OS](./portfolio-projects/makma-ai-os/)
+
+Agent orchestration, session memory, provider abstraction, FastAPI and an extensible foundation for a personal intelligence layer.
+
+`Agents` `Memory` `FastAPI` `Tooling`
+
+</td>
+<td width="50%" valign="top">
+
+### 🧠 [Agentic RAG Engine](./portfolio-projects/agentic-rag-engine/)
+
+Hybrid retrieval with lexical + semantic-style scoring, reciprocal-rank fusion, citation context and evaluation metrics.
+
+`RAG` `Hybrid Search` `Evaluation` `Retrieval`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🎬 [Multimodal AI Studio](./portfolio-projects/multimodal-ai-studio/)
+
+Prompt-to-edit planning for intelligent photo/video workflows with ordered effect graphs and validation.
+
+`Multimodal` `Vision` `Media AI` `Planning`
+
+</td>
+<td width="50%" valign="top">
+
+### 🌐 [Knowledge Twin](./portfolio-projects/knowledge-twin/)
+
+Entity/relationship graph modeling, neighborhood traversal and semantic-style knowledge retrieval.
+
+`Knowledge Graphs` `NLP` `Retrieval` `Reasoning`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🧬 [Clinical Document Intelligence](./portfolio-projects/clinical-document-intelligence/)
+
+Synthetic-data-only clinical-style document extraction with normalized fields and validation.
+
+`NLP` `Information Extraction` `Validation` `Synthetic Data`
+
+</td>
+<td width="50%" valign="top">
+
+### ⚙️ [MLOps Production Pipeline](./portfolio-projects/mlops-production-pipeline/)
+
+Training, model metadata, evaluation gates and population-stability monitoring in an inspectable ML lifecycle.
+
+`MLOps` `Testing` `Monitoring` `CI/CD`
+
+</td>
+</tr>
+</table>
+
+> All six projects are public portfolio implementations built from scratch. They do **not** contain private employer code, confidential datasets, or committed credentials.
+
+
 ---
 
 ## 🧪 Experience Snapshot
