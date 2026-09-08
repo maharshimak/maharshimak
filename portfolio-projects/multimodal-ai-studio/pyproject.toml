@@ -1,0 +1,10 @@
+[project]
+name = "multimodal-ai-studio"
+version = "0.1.0"
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+dev = ["pytest>=8.4,<9","ruff>=0.12,<1"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
