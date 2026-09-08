@@ -1,27 +1,67 @@
 # 🧠 Agentic RAG Engine
 
-A compact retrieval engine demonstrating **lexical + semantic-style scoring, reciprocal-rank fusion, citation-ready context assembly and evaluation hooks**.
+Production-style Retrieval-Augmented Generation with **hybrid search, reranking, citations, evaluation and agent-ready orchestration**.
 
-## Implemented
+## Why this is different
 
-- document chunk model
-- BM25-inspired lexical scorer
-- deterministic embedding-like scorer for offline tests
-- reciprocal rank fusion
-- citation formatter
-- retrieval metrics
-- unit tests
-
-## Architecture
+Most demos stop at `embed → vector search → prompt`. This project implements a more realistic retrieval stack:
 
 ```mermaid
 flowchart LR
-Q[Query] --> L[Lexical Retriever]
-Q --> S[Semantic Retriever]
-L --> F[Rank Fusion]
+Q[Query] --> L[BM25-style Lexical Search]
+Q --> S[Semantic Search]
+L --> F[Reciprocal Rank Fusion]
 S --> F
-F --> C[Citation Context]
-C --> A[Agent / LLM]
+F --> R[Reranker]
+R --> B[Context Budget]
+B --> C[Citation Context]
+C --> G[Grounded Answer]
 ```
 
-The semantic scorer is intentionally deterministic and dependency-light for the public starter. Swap it with a real embedding backend through the same interface.
+### Implemented
+
+- document chunking with overlap
+- typed domain models
+- BM25-inspired lexical retrieval
+- deterministic offline embedding provider
+- semantic cosine search
+- reciprocal-rank fusion
+- transparent reranking
+- context-budget selection
+- citation-ready grounded answers
+- Recall@K / Precision@K / MRR / Hit Rate
+- FastAPI service
+- Docker
+- tests + CI
+- security/evaluation architecture
+
+The default embedding provider is deliberately offline and deterministic so CI is reproducible. The provider interface is designed for real embedding backends later.
+
+## Quick start
+
+```bash
+pip install -e ".[dev]"
+pytest -q
+uvicorn agentic_rag.api.app:app --reload
+```
+
+Open `http://localhost:8000/docs`.
+
+## API
+
+- `GET /health`
+- `POST /v1/documents/index`
+- `POST /v1/retrieve`
+- `POST /v1/answer`
+
+## Roadmap
+
+- real sentence-transformer / cloud embedding adapters
+- persistent vector stores
+- cross-encoder reranking
+- query decomposition
+- iterative retrieval agents
+- groundedness and citation-faithfulness evaluation
+- tracing and production benchmarks
+
+Built from scratch as a public engineering portfolio project.
