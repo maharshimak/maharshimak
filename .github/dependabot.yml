@@ -1,0 +1,23 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/portfolio-projects/makma-ai-os"
+    schedule: { interval: "weekly" }
+  - package-ecosystem: "pip"
+    directory: "/portfolio-projects/agentic-rag-engine"
+    schedule: { interval: "weekly" }
+  - package-ecosystem: "pip"
+    directory: "/portfolio-projects/multimodal-ai-studio"
+    schedule: { interval: "weekly" }
+  - package-ecosystem: "pip"
+    directory: "/portfolio-projects/knowledge-twin"
+    schedule: { interval: "weekly" }
+  - package-ecosystem: "pip"
+    directory: "/portfolio-projects/clinical-document-intelligence"
+    schedule: { interval: "weekly" }
+  - package-ecosystem: "pip"
+    directory: "/portfolio-projects/mlops-production-pipeline"
+    schedule: { interval: "weekly" }
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule: { interval: "weekly" }
