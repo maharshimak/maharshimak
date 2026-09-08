@@ -1,5 +1,7 @@
 FROM python:3.12-slim
 WORKDIR /app
-COPY . .
-RUN pip install .
-CMD ["python","-c","from rag_engine.core import Document, hybrid_retrieve; print(hybrid_retrieve('rag',[Document('1','rag retrieval')]))"]
+COPY pyproject.toml .
+COPY src ./src
+RUN pip install --no-cache-dir .
+EXPOSE 8000
+CMD ["uvicorn","agentic_rag.api.app:app","--host","0.0.0.0","--port","8000"]
