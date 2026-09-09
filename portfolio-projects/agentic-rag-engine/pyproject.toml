@@ -7,7 +7,7 @@ name = "agentic-rag-engine"
 version = "0.2.0"
 requires-python = ">=3.12"
 dependencies = [
-  "fastapi>=0.116,<1",
+  "fastapi>=0.141.1,<1",
   "uvicorn>=0.35,<1",
   "pydantic-settings>=2.10,<3",
 ]
