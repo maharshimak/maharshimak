@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 import re
+from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
@@ -12,7 +12,7 @@ class StudyRecord:
 
 
 def _capture(pattern: str, text: str) -> str | None:
-    match = re.search(pattern, text, flags=re.I)
+    match = re.search(pattern, text, flags=re.IGNORECASE)
     return match.group(1).strip() if match else None
 
 

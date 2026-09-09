@@ -1,5 +1,5 @@
-from dataclasses import dataclass
 from collections import defaultdict, deque
+from dataclasses import dataclass
 
 
 @dataclass(frozen=True)
@@ -53,4 +53,6 @@ class KnowledgeGraph:
             text = f"{entity.name} {entity.description}".lower()
             score = sum(term in text for term in terms)
             scored.append((score, entity))
-        return [e for score, e in sorted(scored, key=lambda x: x[0], reverse=True) if score > 0][:top_k]
+
+        ordered = sorted(scored, key=lambda x: x[0], reverse=True)
+        return [entity for score, entity in ordered if score > 0][:top_k]

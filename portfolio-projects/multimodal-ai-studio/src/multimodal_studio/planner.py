@@ -1,5 +1,5 @@
-from dataclasses import dataclass, asdict
 import json
+from dataclasses import asdict, dataclass
 
 
 @dataclass(frozen=True)
@@ -11,18 +11,34 @@ class EditNode:
 
 KEYWORDS: list[tuple[tuple[str, ...], EditNode]] = [
     (("slow motion", "slow-mo"), EditNode("retime", {"speed": 0.5}, "temporal")),
-    (("teal", "cinematic"), EditNode("color_grade", {"preset": "cinematic-teal"}, "color")),
+    (
+        ("teal", "cinematic"),
+        EditNode("color_grade", {"preset": "cinematic-teal"}, "color"),
+    ),
     (("noise", "denoise"), EditNode("audio_denoise", {"strength": 0.7}, "audio")),
     (("subtitle", "captions"), EditNode("subtitles", {"mode": "auto"}, "overlay")),
-    (("background",), EditNode("background_segmentation", {"mode": "subject"}, "vision")),
+    (
+        ("background",),
+        EditNode("background_segmentation", {"mode": "subject"}, "vision"),
+    ),
 ]
 
-STAGE_ORDER = {"vision": 0, "temporal": 1, "color": 2, "audio": 3, "overlay": 4}
+STAGE_ORDER = {
+    "vision": 0,
+    "temporal": 1,
+    "color": 2,
+    "audio": 3,
+    "overlay": 4,
+}
 
 
 def plan(prompt: str) -> list[EditNode]:
     lower = prompt.lower()
-    nodes = [node for keys, node in KEYWORDS if any(key in lower for key in keys)]
+    nodes = [
+        node
+        for keys, node in KEYWORDS
+        if any(key in lower for key in keys)
+    ]
     deduped = {node.operation: node for node in nodes}
     return sorted(deduped.values(), key=lambda n: STAGE_ORDER[n.stage])
 
