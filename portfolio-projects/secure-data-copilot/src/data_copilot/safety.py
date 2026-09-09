@@ -1,10 +1,24 @@
 import re
 
-
 FORBIDDEN = {
-    "insert", "update", "delete", "drop", "alter", "create", "replace",
-    "truncate", "attach", "detach", "pragma", "vacuum", "reindex",
-    "grant", "revoke", "commit", "rollback", "savepoint",
+    "insert",
+    "update",
+    "delete",
+    "drop",
+    "alter",
+    "create",
+    "replace",
+    "truncate",
+    "attach",
+    "detach",
+    "pragma",
+    "vacuum",
+    "reindex",
+    "grant",
+    "revoke",
+    "commit",
+    "rollback",
+    "savepoint",
 }
 
 
@@ -36,7 +50,9 @@ def validate_read_only(sql: str, max_rows: int = 200) -> str:
 
     blocked = sorted(_tokens(normalized).intersection(FORBIDDEN))
     if blocked:
-        raise UnsafeQueryError(f"Forbidden SQL operation(s): {', '.join(blocked)}")
+        raise UnsafeQueryError(
+            f"Forbidden SQL operation(s): {', '.join(blocked)}"
+        )
 
     match = re.search(r"\blimit\s+(\d+)\b", lowered)
     if match:
@@ -46,7 +62,7 @@ def validate_read_only(sql: str, max_rows: int = 200) -> str:
                 r"\blimit\s+\d+\b",
                 f"LIMIT {max_rows}",
                 normalized,
-                flags=re.I,
+                flags=re.IGNORECASE,
             )
         return normalized
 

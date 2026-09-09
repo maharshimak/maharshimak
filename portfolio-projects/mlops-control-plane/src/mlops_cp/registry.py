@@ -1,6 +1,5 @@
 from mlops_cp.models import Evaluation, ModelVersion
-from mlops_cp.policy import PromotionDecision, evaluate_promotion
-
+from mlops_cp.policy import evaluate_promotion, PromotionDecision
 
 ALLOWED_STAGES = {"registered", "candidate", "production", "archived"}
 

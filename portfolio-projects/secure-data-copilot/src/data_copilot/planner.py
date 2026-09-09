@@ -10,20 +10,26 @@ class DeterministicPlanner:
         q = question.lower().strip()
         table_names = {table.name.lower(): table.name for table in schema}
 
-        if "customer" in q and "customers" in table_names:
-            if any(term in q for term in {"top", "highest", "revenue", "sales"}):
-                return QueryPlan(
-                    question=question,
-                    sql=(
-                        "SELECT c.name, SUM(o.amount) AS revenue "
-                        "FROM customers c "
-                        "JOIN orders o ON o.customer_id = c.id "
-                        "GROUP BY c.id, c.name "
-                        "ORDER BY revenue DESC"
-                    ),
-                    rationale="Aggregate order value by customer and rank descending.",
-                    confidence=0.95,
-                )
+        if (
+            "customer" in q
+            and "customers" in table_names
+            and any(
+                term in q
+                for term in ("top", "highest", "revenue", "sales")
+            )
+        ):
+            return QueryPlan(
+                question=question,
+                sql=(
+                    "SELECT c.name, SUM(o.amount) AS revenue "
+                    "FROM customers c "
+                    "JOIN orders o ON o.customer_id = c.id "
+                    "GROUP BY c.id, c.name "
+                    "ORDER BY revenue DESC"
+                ),
+                rationale="Aggregate order value by customer and rank descending.",
+                confidence=0.95,
+            )
 
         if "revenue" in q and "orders" in table_names:
             return QueryPlan(

@@ -1,9 +1,18 @@
+from collections.abc import Callable
 from math import ceil
-from typing import Callable
 
-from llm_eval.metrics import citation_coverage, contains_forbidden, estimated_cost, relevance
-from llm_eval.models import CaseMetrics, EvalCase, ExperimentSummary, ModelOutput
-
+from llm_eval.metrics import (
+    citation_coverage,
+    contains_forbidden,
+    estimated_cost,
+    relevance,
+)
+from llm_eval.models import (
+    CaseMetrics,
+    EvalCase,
+    ExperimentSummary,
+    ModelOutput,
+)
 
 Candidate = Callable[[EvalCase], ModelOutput]
 
@@ -12,7 +21,10 @@ def percentile(values: list[float], fraction: float) -> float:
     if not values:
         return 0.0
     ordered = sorted(values)
-    index = max(0, min(len(ordered) - 1, ceil(fraction * len(ordered)) - 1))
+    index = max(
+        0,
+        min(len(ordered) - 1, ceil(fraction * len(ordered)) - 1),
+    )
     return ordered[index]
 
 
@@ -80,6 +92,8 @@ class ExperimentRunner:
                 [item.latency_ms for item in evaluated],
                 0.95,
             ),
-            mean_cost_usd=sum(item.estimated_cost_usd for item in evaluated) / count,
+            mean_cost_usd=sum(
+                item.estimated_cost_usd for item in evaluated
+            ) / count,
             cases=evaluated,
         )
