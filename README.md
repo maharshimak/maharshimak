@@ -123,6 +123,47 @@ Full-stack intelligent applications with **modern web interfaces, APIs, data inf
 
 ---
 
+## 🧪 Production AI Labs
+
+These three projects go beyond portfolio-only demos and focus on **production control, safety and reliability**.
+
+<table>
+<tr>
+<td width="33%" valign="top">
+
+### 🔐 [Secure Data Copilot](./portfolio-projects/secure-data-copilot/)
+
+Read-only analytics copilot with schema introspection, SQL policy enforcement, query auditing, result summaries and a FastAPI service.
+
+`Data Agents` `SQL Safety` `FastAPI` `Analytics`
+
+</td>
+<td width="33%" valign="top">
+
+### 🔭 [LLM Eval & Observability](./portfolio-projects/llm-eval-observability/)
+
+Experiment runner for relevance, citation coverage, forbidden outputs, latency, cost and regression release gates.
+
+`LLMOps` `Evaluation` `Observability` `Quality Gates`
+
+</td>
+<td width="33%" valign="top">
+
+### ⚙️ [MLOps Control Plane](./portfolio-projects/mlops-control-plane/)
+
+Model registry, dataset fingerprints, metric gates, candidate/production promotion and PSI-based drift detection.
+
+`MLOps` `Model Registry` `Drift` `Governance`
+
+</td>
+</tr>
+</table>
+
+[![Production AI Labs CI](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml)
+
+
+---
+
 ## 🚀 Featured Engineering Portfolio
 
 <div align="center">
