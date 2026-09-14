@@ -4,4 +4,4 @@ COPY pyproject.toml .
 COPY src ./src
 RUN pip install --no-cache-dir .
 EXPOSE 8000
-CMD ["uvicorn","agentic_rag.api.app:app","--host","0.0.0.0","--port","8000"]
+CMD ["uvicorn","rag_engine.api:app","--host","0.0.0.0","--port","8000"]
