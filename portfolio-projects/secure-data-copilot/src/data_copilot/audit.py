@@ -17,7 +17,7 @@ class AuditEvent:
 
 def sql_fingerprint(sql: str) -> str:
     normalized = " ".join(sql.lower().split())
-    return hashlib.sha256(normalized.encode("utf-8")).hexdigest()
+    return hashlib.sha256(normalized.encode()).hexdigest()
 
 
 def build_event(
@@ -30,7 +30,7 @@ def build_event(
     timestamp = datetime.now(UTC).isoformat()
     fingerprint = sql_fingerprint(sql)
     event_id = hashlib.sha256(
-        f"{timestamp}:{fingerprint}".encode("utf-8")
+        f"{timestamp}:{fingerprint}".encode()
     ).hexdigest()[:20]
     return AuditEvent(
         event_id=event_id,
