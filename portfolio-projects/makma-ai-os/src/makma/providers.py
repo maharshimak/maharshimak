@@ -33,7 +33,14 @@ class LocalProvider:
         tool_results: list[ToolResult],
     ) -> str:
         del system_prompt
-        latest = next((message.content for message in reversed(messages) if message.role == "user"), "")
+        latest = next(
+            (
+                message.content
+                for message in reversed(messages)
+                if message.role == "user"
+            ),
+            "",
+        )
         if tool_results:
             successful = [result.output for result in tool_results if result.ok]
             if successful:
