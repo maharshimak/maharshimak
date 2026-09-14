@@ -7,7 +7,6 @@ from rag_engine.evaluation import evaluate_retrieval
 from rag_engine.models import Document
 from rag_engine.service import RAGEngine
 
-
 DOCS = [
     Document(
         "rag",

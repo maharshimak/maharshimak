@@ -2,7 +2,6 @@ import re
 
 from rag_engine.models import Chunk, Document
 
-
 _TOKEN_RE = re.compile(r"\S+")
 
 

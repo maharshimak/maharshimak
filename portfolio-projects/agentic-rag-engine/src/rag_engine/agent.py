@@ -12,7 +12,11 @@ class QueryPlanner:
         cleaned = " ".join(query.split())
         parts = [
             part.strip(" ,;")
-            for part in re.split(r"\b(?:and|versus|vs\.?|then)\b|[?;]", cleaned, flags=re.I)
+            for part in re.split(
+                r"\b(?:and|versus|vs\.?|then)\b|[?;]",
+                cleaned,
+                flags=re.IGNORECASE,
+            )
             if part.strip(" ,;")
         ]
         planned = [cleaned]
