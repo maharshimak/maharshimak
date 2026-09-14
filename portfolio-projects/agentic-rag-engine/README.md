@@ -1,48 +1,49 @@
-# 🧠 Agentic RAG Engine
+# 🧠 Agentic RAG Engine V2
 
-Production-style Retrieval-Augmented Generation with **hybrid search, reranking, citations, evaluation and agent-ready orchestration**.
+A production-oriented Retrieval-Augmented Generation engine with **document chunking, BM25-style lexical search, semantic retrieval, reciprocal-rank fusion, multi-query planning, transparent reranking, context budgeting, citations, evaluation, FastAPI, Docker, and OpenAI-compatible model adapters**.
 
-## Why this is different
-
-Most demos stop at `embed → vector search → prompt`. This project implements a more realistic retrieval stack:
+## Architecture
 
 ```mermaid
 flowchart LR
-Q[Query] --> L[BM25-style Lexical Search]
-Q --> S[Semantic Search]
+Q[User Query] --> P[Query Planner]
+P --> L[BM25 Retrieval]
+P --> V[Semantic Retrieval]
 L --> F[Reciprocal Rank Fusion]
-S --> F
-F --> R[Reranker]
-R --> B[Context Budget]
-B --> C[Citation Context]
-C --> G[Grounded Answer]
+V --> F
+F --> R[Transparent Reranker]
+R --> C[Context Budget]
+C --> G[Grounded Generator]
+G --> A[Answer + Citations]
 ```
 
-### Implemented
+## What is implemented
 
-- document chunking with overlap
-- typed domain models
-- BM25-inspired lexical retrieval
-- deterministic offline embedding provider
-- semantic cosine search
-- reciprocal-rank fusion
-- transparent reranking
-- context-budget selection
-- citation-ready grounded answers
-- Recall@K / Precision@K / MRR / Hit Rate
-- FastAPI service
-- Docker
-- tests + CI
-- security/evaluation architecture
-
-The default embedding provider is deliberately offline and deterministic so CI is reproducible. The provider interface is designed for real embedding backends later.
+- typed `Document`, `Chunk`, scored-result and trace models
+- deterministic overlapping document chunking
+- real BM25-style lexical index
+- deterministic offline embedding provider for reproducible CI
+- OpenAI-compatible `/v1/embeddings` adapter for real local/cloud embedding servers
+- cosine semantic retrieval
+- reciprocal-rank fusion across lexical, semantic and planned-query rankings
+- deterministic multi-query decomposition for compound questions
+- interpretable reranker with a replaceable cross-encoder boundary
+- token-budgeted citation context construction
+- offline grounded extractive generation
+- OpenAI-compatible `/v1/chat/completions` generator for real LLMs
+- Recall@K, Precision@K, MRR and Hit Rate evaluation
+- FastAPI indexing, retrieval and answer endpoints
+- latency and retrieval tracing
+- Docker support
+- compatibility layer for the original V1 API
+- automated tests and GitHub CI
 
 ## Quick start
 
 ```bash
 pip install -e ".[dev]"
 pytest -q
-uvicorn agentic_rag.api.app:app --reload
+uvicorn rag_engine.api:app --reload
 ```
 
 Open `http://localhost:8000/docs`.
@@ -54,14 +55,32 @@ Open `http://localhost:8000/docs`.
 - `POST /v1/retrieve`
 - `POST /v1/answer`
 
-## Roadmap
+## Use a real OpenAI-compatible model server
 
-- real sentence-transformer / cloud embedding adapters
-- persistent vector stores
-- cross-encoder reranking
-- query decomposition
-- iterative retrieval agents
+The default configuration is fully offline so tests and demos are reproducible. To connect Ollama/vLLM/LM Studio or another OpenAI-compatible gateway, configure the following environment variables:
+
+```bash
+export RAG_EMBEDDING_BASE_URL=http://localhost:11434
+export RAG_EMBEDDING_MODEL=nomic-embed-text
+export RAG_CHAT_BASE_URL=http://localhost:11434
+export RAG_CHAT_MODEL=qwen3
+export RAG_API_KEY=
+```
+
+The engine automatically switches from the deterministic offline providers to the configured model endpoints.
+
+## Why this project matters
+
+This repository is intentionally built beyond the common `embed → vector search → prompt` demo. The retrieval path separates planning, lexical search, semantic search, fusion, reranking, context construction, generation and evaluation so each stage can be tested, benchmarked and replaced independently.
+
+## Next engineering milestones
+
+- persistent Qdrant/pgvector adapter
+- learned cross-encoder reranker
+- LLM-driven query decomposition and iterative retrieval
+- ingestion workers for PDF/HTML/Markdown
 - groundedness and citation-faithfulness evaluation
-- tracing and production benchmarks
+- OpenTelemetry-compatible tracing
+- benchmark datasets and regression gates
 
-Built from scratch as a public engineering portfolio project.
+Built as an engineering portfolio project focused on production GenAI systems.
