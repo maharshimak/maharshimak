@@ -1,0 +1,38 @@
+name: Security History Audit
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 5 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  reachable-history-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout full history
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+
+      - name: Audit reachable blobs for credential patterns
+        shell: bash
+        run: |
+          python - <<'PY'
+          import importlib.util
+          from pathlib import Path
+
+          script = Path("scripts/split-portfolio-repos.py")
+          spec = importlib.util.spec_from_file_location("portfolio_split_audit", script)
+          if spec is None or spec.loader is None:
+              raise RuntimeError("Unable to load repository audit implementation")
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          scanned = module.audit(Path("."))
+          print(f"Security history audit passed: scanned {scanned} reachable blobs.")
+          PY
