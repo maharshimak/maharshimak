@@ -276,7 +276,9 @@ Selected work has included **clinical-trial document intelligence, information e
 
 ---
 
-## 📊 GitHub Intelligence
+## 📊 GitHub Engineering Activity
+
+A public snapshot of contribution activity and repository language mix — useful context for engineering work, not a measure of expertise.
 
 <div align="center">
 
@@ -285,13 +287,13 @@ Selected work has included **clinical-trial document intelligence, information e
 
 <br/>
 
-<img src="https://streak-stats.demolab.com?user=maharshimak&theme=tokyonight&hide_border=true&background=00000000&ring=00E7FF&fire=FF6B6B&currStreakLabel=00E7FF" alt="GitHub Streak" />
+<img src="https://streak-stats.demolab.com?user=maharshimak&theme=tokyonight&hide_border=true&background=00000000&ring=00E7FF&fire=FF6B6B&currStreakLabel=00E7FF" alt="GitHub contribution streak" />
 
 </div>
 
 ---
 
-## 📈 Activity
+## 📈 Contribution Timeline
 
 <div align="center">
 
@@ -301,7 +303,7 @@ Selected work has included **clinical-trial document intelligence, information e
 
 ---
 
-## 🐍 Contribution Engine
+## 🐍 Contribution Trail
 
 <div align="center">
 
