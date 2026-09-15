@@ -41,3 +41,47 @@ jobs:
           scanned = module.audit(Path("."))
           print(f"Security history audit passed: scanned {scanned} reachable blobs.")
           PY
+
+      - name: Self-test credential detection
+        shell: bash
+        run: |
+          python - <<'PY'
+          import importlib.util
+          import subprocess
+          import tempfile
+          from pathlib import Path
+
+          script = Path("scripts/split-portfolio-repos.py")
+          spec = importlib.util.spec_from_file_location("portfolio_split_audit", script)
+          if spec is None or spec.loader is None:
+              raise RuntimeError("Unable to load repository audit implementation")
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+
+          def git(repo: Path, *args: str) -> None:
+              subprocess.run(["git", *args], cwd=repo, check=True, capture_output=True, text=True)
+
+          with tempfile.TemporaryDirectory() as temp_dir:
+              repo = Path(temp_dir)
+              git(repo, "init", "-q")
+              git(repo, "config", "user.name", "Security Audit CI")
+              git(repo, "config", "user.email", "security-audit@example.invalid")
+              (repo / "clean.txt").write_text("clean fixture\n", encoding="utf-8")
+              git(repo, "add", "clean.txt")
+              git(repo, "commit", "-qm", "clean fixture")
+              if module.audit(repo) < 1:
+                  raise RuntimeError("Scanner self-test did not inspect the clean fixture")
+
+              synthetic_value = "A" * 20
+              (repo / "fixture.txt").write_text(
+                  "password = '" + synthetic_value + "'\n", encoding="utf-8"
+              )
+              git(repo, "add", "fixture.txt")
+              git(repo, "commit", "-qm", "synthetic secret fixture")
+              try:
+                  module.audit(repo)
+              except RuntimeError:
+                  print("Security scanner self-test passed: synthetic secret was rejected.")
+              else:
+                  raise RuntimeError("Security scanner self-test failed to detect synthetic secret")
+          PY
