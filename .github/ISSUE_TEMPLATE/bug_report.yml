@@ -1,0 +1,64 @@
+name: Bug report
+description: Report a reproducible defect in a portfolio project
+title: "bug: "
+labels: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Please do not include secrets, private data, employer-confidential information or exploitable security details.
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      options:
+        - makma-ai-os
+        - agentic-rag-engine
+        - multimodal-ai-studio
+        - knowledge-twin
+        - clinical-document-intelligence
+        - secure-data-copilot
+        - llm-eval-observability
+        - mlops-control-plane
+        - mlops-production-pipeline
+        - profile / repository infrastructure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the observed behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction steps
+      description: Include the smallest reproducible sequence you can.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: OS, Python version, relevant package versions and execution mode.
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Remove credentials, tokens and private data before pasting logs.
+      render: shell
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety check
+      options:
+        - label: I removed secrets, credentials and private data from this report.
+          required: true
