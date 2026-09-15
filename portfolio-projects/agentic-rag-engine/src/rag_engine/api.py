@@ -38,8 +38,7 @@ def health() -> dict[str, str]:
 @app.post("/v1/documents/index")
 def index_documents(request: IndexRequest) -> dict[str, int]:
     documents = [
-        Document(id=item.id, text=item.text, metadata=item.metadata)
-        for item in request.documents
+        Document(id=item.id, text=item.text, metadata=item.metadata) for item in request.documents
     ]
     chunk_count = engine.index(documents)
     return {"documents": len(documents), "chunks": chunk_count}

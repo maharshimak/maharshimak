@@ -115,3 +115,75 @@ Mak'ma does **not** expose arbitrary shell execution or unrestricted filesystem 
 - task scheduler and background workers
 - OpenTelemetry traces and metrics
 - dedicated web UI
+
+## Scope and limitations
+
+The default local provider is deterministic, not an LLM. SSE replays a completed answer rather than streaming model tokens. Sessions are identifiers, not authentication boundaries. API-provided approvals are intended for a trusted local client, not multi-user authorization. Run history persists responses and metadata; full tool traces are returned with the response, not persisted. SQLite operations are synchronous. No shell, filesystem, browser or autonomous background execution is implemented.
+
+## Installation and development
+
+Requires Python 3.12 or newer. Run from this project directory.
+
+```bash
+python -m venv .venv
+source .venv/bin/activate
+python -m pip install -e ".[dev]"
+python -m ruff check .
+python -m pytest -q
+python -m pip wheel --no-deps . -w dist
+```
+
+On Windows, activate with `.venv\Scripts\Activate.ps1`.
+
+## Library usage
+
+```python
+import asyncio
+from makma.runtime import build_runtime
+
+runtime = build_runtime()
+result = asyncio.run(runtime.run("calculate 19 * 23", "demo"))
+print(result.response)
+runtime.memory.close()
+```
+
+## Configuration
+
+See [.env.example](.env.example). Export variables into the process environment; the application does not automatically load that file. Keep real credentials out of Git.
+
+## Service and API schema
+
+```bash
+python -m uvicorn makma.main:app --host 127.0.0.1 --port 8000
+```
+
+Interactive endpoint schemas are at `http://127.0.0.1:8000/docs`; machine-readable schemas are at `/openapi.json`. These APIs have no built-in authentication. Use trusted local data and local access.
+
+## Container
+
+```bash
+docker build -t makma-ai-os .
+docker run --rm -p 127.0.0.1:8000:8000 -v makma-data:/app/data makma-ai-os
+```
+
+## Repository structure
+
+| Path | Purpose |
+| --- | --- |
+| `src/makma/` | Implementation |
+| `tests/` | Offline unit and regression tests |
+| `docs/DESIGN.md` | Architecture and trust boundaries |
+| `.github/workflows/ci.yml` | Install, lint, tests, wheel and container build |
+| `pyproject.toml` | Dependencies and package configuration |
+
+## Next engineering work
+
+Authenticated sessions; durable tool traces; native provider streaming; structured model planning; isolated workers for any future higher-risk tools. These are planned work, not current capabilities.
+
+## Contributing and security
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md). The standalone CI workflow runs after migration; while nested in the profile repository, the parent CI validates this project.
+
+## License and provenance
+
+[MIT](LICENSE), copyright 2026 Maharshi Patel. This public portfolio implementation is independent of employer systems and contains no confidential employer code or data. Examples and test fixtures are synthetic.

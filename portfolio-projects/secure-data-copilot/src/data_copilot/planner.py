@@ -13,10 +13,7 @@ class DeterministicPlanner:
         if (
             "customer" in q
             and "customers" in table_names
-            and any(
-                term in q
-                for term in ("top", "highest", "revenue", "sales")
-            )
+            and any(term in q for term in ("top", "highest", "revenue", "sales"))
         ):
             return QueryPlan(
                 question=question,
@@ -57,6 +54,4 @@ class DeterministicPlanner:
                     confidence=0.55,
                 )
 
-        raise ValueError(
-            "The deterministic planner could not map the question to the schema."
-        )
+        raise ValueError("The deterministic planner could not map the question to the schema.")

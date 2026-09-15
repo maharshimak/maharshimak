@@ -5,7 +5,7 @@
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=230&section=header&text=Maharshi%20Patel&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Engineer%20%E2%80%A2%20GenAI%20%E2%80%A2%20LLM%2FRAG%20%E2%80%A2%20AI%20Agents%20%E2%80%A2%20MLOps&descSize=18&descAlignY=60" />
 
 <a href="https://readme-typing-svg.demolab.com">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=900&color=00E7FF&center=true&vCenter=true&width=900&lines=Building+AI+systems+that+reason%2C+retrieve+%26+act;Generative+AI+%7C+LLM%2FRAG+%7C+AI+Agents;Machine+Learning+%7C+Data+Engineering+%7C+MLOps;From+research+prototypes+to+production+AI" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=900&color=00E7FF&center=true&vCenter=true&width=900&lines=Building+AI+systems+that+reason%2C+retrieve+%26+act;Generative+AI+%7C+LLM%2FRAG+%7C+AI+Agents;Machine+Learning+%7C+Data+Engineering+%7C+MLOps;Inspectable+AI+systems+with+tests+and+clear+boundaries" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -29,328 +29,60 @@
 
 </div>
 
----
 
-## 🧠 `whoami`
+## About me
 
-```yaml
-name: Maharshi Patel
-location: Paris, France
-role: AI Engineer
-focus:
-  - Generative AI
-  - LLM / RAG
-  - AI Agents
-  - Machine Learning
-  - Data Engineering
-  - MLOps
-  - NLP
-  - Knowledge Systems
-education: AI & Data Science for Business @ Aivancity
-certification: AWS Certified Machine Learning Engineer – Associate
-mission: Build AI systems that move from prediction → generation → reasoning → action
-```
-
-I design and build **AI systems that connect models with real data, tools, workflows and products**.
-
-My work spans **LLMs, Retrieval-Augmented Generation, AI agents, machine learning, NLP, knowledge systems, data pipelines, evaluation and deployment** — with a strong interest in taking AI from prototype to something people can actually use.
-
----
-
-## ⚡ AI / ML Stack
-
-<div align="center">
-
-<img src="https://skillicons.dev/icons?i=py,pytorch,tensorflow,aws,docker,git,github,fastapi,js,ts,nextjs,react,tailwind,postgres,mysql,linux,vscode,anaconda&perline=9&theme=dark" alt="Tech stack" />
-
-<br/><br/>
-
-<img src="https://img.shields.io/badge/LLMs-111827?style=for-the-badge&logo=openai&logoColor=00E7FF" />
-<img src="https://img.shields.io/badge/RAG-111827?style=for-the-badge&logo=semanticweb&logoColor=00E7FF" />
-<img src="https://img.shields.io/badge/AI%20Agents-111827?style=for-the-badge&logo=probot&logoColor=00E7FF" />
-<img src="https://img.shields.io/badge/Transformers-111827?style=for-the-badge&logo=huggingface&logoColor=FFD21E" />
-<img src="https://img.shields.io/badge/Pinecone-111827?style=for-the-badge&logoColor=00E7FF" />
-<img src="https://img.shields.io/badge/Vector%20Databases-111827?style=for-the-badge&logo=databricks&logoColor=FF3621" />
-<img src="https://img.shields.io/badge/Knowledge%20Graphs-111827?style=for-the-badge&logo=neo4j&logoColor=4581C3" />
-<img src="https://img.shields.io/badge/MLOps-111827?style=for-the-badge&logo=mlflow&logoColor=0194E2" />
-
-</div>
-
----
-
-## 🚀 What I Build
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 🤖 Agentic AI
-LLM-powered systems that can **reason, retrieve information, use tools and coordinate multi-step workflows**.
-
-`Agents` `Tool Use` `RAG` `Evaluation`
-
-</td>
-<td width="50%" valign="top">
-
-### 🧬 Knowledge Intelligence
-Systems combining **semantic retrieval, knowledge graphs and structured information extraction**.
-
-`Knowledge Graphs` `NLP` `Embeddings` `Vector Search`
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-### 📈 Machine Learning
-End-to-end ML workflows from **data preparation and modeling to evaluation and deployment**.
-
-`PyTorch` `TensorFlow` `scikit-learn` `AWS`
-
-</td>
-<td width="50%" valign="top">
-
-### 🏗️ AI Products
-Full-stack intelligent applications with **modern web interfaces, APIs, data infrastructure and production AI backends**.
-
-`Next.js` `FastAPI` `TypeScript` `Cloud`
-
-</td>
-</tr>
-</table>
-
-
----
-
-## 🧪 Production AI Labs
-
-These three projects go beyond portfolio-only demos and focus on **production control, safety and reliability**.
-
-<table>
-<tr>
-<td width="33%" valign="top">
-
-### 🔐 [Secure Data Copilot](./portfolio-projects/secure-data-copilot/)
-
-Read-only analytics copilot with schema introspection, SQL policy enforcement, query auditing, result summaries and a FastAPI service.
-
-`Data Agents` `SQL Safety` `FastAPI` `Analytics`
-
-</td>
-<td width="33%" valign="top">
-
-### 🔭 [LLM Eval & Observability](./portfolio-projects/llm-eval-observability/)
-
-Experiment runner for relevance, citation coverage, forbidden outputs, latency, cost and regression release gates.
-
-`LLMOps` `Evaluation` `Observability` `Quality Gates`
-
-</td>
-<td width="33%" valign="top">
-
-### ⚙️ [MLOps Control Plane](./portfolio-projects/mlops-control-plane/)
-
-Model registry, dataset fingerprints, metric gates, candidate/production promotion and PSI-based drift detection.
-
-`MLOps` `Model Registry` `Drift` `Governance`
-
-</td>
-</tr>
-</table>
-
-[![Production AI Labs CI](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml)
-
-
----
-
-## 🚀 Featured Engineering Portfolio
-
-<div align="center">
-
-[![Portfolio CI](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml)
-
-</div>
-
-<table>
-<tr>
-<td width="50%" valign="top">
-
-### 🦾 [Mak'ma AI OS](./portfolio-projects/makma-ai-os/)
-
-Agent orchestration, session memory, provider abstraction, FastAPI and an extensible foundation for a personal intelligence layer.
-
-`Agents` `Memory` `FastAPI` `Tooling`
-
-</td>
-<td width="50%" valign="top">
-
-### 🧠 [Agentic RAG Engine](./portfolio-projects/agentic-rag-engine/)
-
-Hybrid retrieval with lexical + semantic-style scoring, reciprocal-rank fusion, citation context and evaluation metrics.
-
-`RAG` `Hybrid Search` `Evaluation` `Retrieval`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🎬 [Multimodal AI Studio](./portfolio-projects/multimodal-ai-studio/)
-
-Prompt-to-edit planning for intelligent photo/video workflows with ordered effect graphs and validation.
-
-`Multimodal` `Vision` `Media AI` `Planning`
-
-</td>
-<td width="50%" valign="top">
-
-### 🌐 [Knowledge Twin](./portfolio-projects/knowledge-twin/)
-
-Entity/relationship graph modeling, neighborhood traversal and semantic-style knowledge retrieval.
-
-`Knowledge Graphs` `NLP` `Retrieval` `Reasoning`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🧬 [Clinical Document Intelligence](./portfolio-projects/clinical-document-intelligence/)
-
-Synthetic-data-only clinical-style document extraction with normalized fields and validation.
-
-`NLP` `Information Extraction` `Validation` `Synthetic Data`
-
-</td>
-<td width="50%" valign="top">
-
-### ⚙️ [MLOps Production Pipeline](./portfolio-projects/mlops-production-pipeline/)
-
-Training, model metadata, evaluation gates and population-stability monitoring in an inspectable ML lifecycle.
-
-`MLOps` `Testing` `Monitoring` `CI/CD`
-
-</td>
-</tr>
-</table>
-
-> All six projects are public portfolio implementations built from scratch. They do **not** contain private employer code, confidential datasets, or committed credentials.
-
-
----
-
-## 🧪 Experience Snapshot
-
-```text
-CERC             → AI Engineer
-FPT Software     → AI Developer
-Pangea Summit    → Machine Learning Engineer
-CMI Strategies   → Data Analyst
-X & Y Corp       → NLP & Algorithm Development
-Substrate AI     → Data Analytics
-```
-
-Selected work has included **clinical-trial document intelligence, information extraction, RAG knowledge systems, Digital Knowledge Twins, AI agents, knowledge graphs, compliance intelligence, prompt/evaluation workflows and analytics**.
-
----
-
-## 🦾 Building Now — `Mak'ma`
-
-<div align="center">
-
-### A personal AI operating system inspired by the idea of a true intelligent digital copilot.
-
-`Multimodal AI` • `Agents` • `Voice` • `Computer Interaction` • `Memory` • `Automation` • `Tool Use`
-
-</div>
-
-> The goal: an AI system that doesn't just answer questions — it **understands context, coordinates tools, acts across workflows and evolves into a personal intelligence layer**.
-
----
-
-## 🏆 Certification
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/AWS%20Certified-Machine%20Learning%20Engineer%20%E2%80%93%20Associate-FF9900?style=for-the-badge&logo=amazonwebservices&logoColor=white" />
+I'm **Maharshi Patel**, an AI Engineer in Paris studying **AI & Data Science for Business at aivancity**.
+I build systems around Generative AI, LLM/RAG, AI agents, machine learning, data engineering,
+MLOps, NLP and knowledge systems, with an emphasis on inspectable behavior and useful tests.
 
 **AWS Certified Machine Learning Engineer – Associate**
 
-</div>
+## Engineering projects
 
----
+These are independent public portfolio implementations. Each project documents what works
+now, its security boundaries, and the engineering work still planned.
 
-## 📊 GitHub Intelligence
+| Project | Implemented focus |
+| --- | --- |
+| [Mak'ma AI OS](./portfolio-projects/makma-ai-os/) | Personal AI runtime with SQLite memory, deterministic tool planning, permission checks and local/model-server adapters. |
+| [Agentic RAG Engine](./portfolio-projects/agentic-rag-engine/) | Inspectable RAG pipeline with text chunking, BM25 retrieval, vector ranking, reciprocal-rank fusion, citations and evaluation. |
+| [Multimodal AI Studio](./portfolio-projects/multimodal-ai-studio/) | Prompt-to-edit planning prototype that converts supported phrases into ordered media-operation specifications. |
+| [Knowledge Twin](./portfolio-projects/knowledge-twin/) | In-memory entity and relationship graph for evidence-bearing edges, directed traversal and keyword retrieval. |
+| [Secure Data Copilot](./portfolio-projects/secure-data-copilot/) | Local read-only SQLite analytics with deterministic planning, SQL restrictions, bounded results and query audit metadata. |
+| [LLM Eval & Observability](./portfolio-projects/llm-eval-observability/) | Offline experiment evaluation for lexical relevance, expected citations, forbidden phrases, reported latency and estimated cost. |
+| [Clinical Document Intelligence](./portfolio-projects/clinical-document-intelligence/) | Rule-based extraction and validation of structured study fields from synthetic clinical-style text. |
+| [MLOps Control Plane](./portfolio-projects/mlops-control-plane/) | In-memory model registry demonstrating evaluation gates, controlled promotion, dataset fingerprints and distribution drift. |
+| [MLOps Production Pipeline](./portfolio-projects/mlops-production-pipeline/) | Dependency-light ML lifecycle building blocks: deterministic linear regression, held-out MAE, quality gates and PSI drift. |
 
-<div align="center">
+Project links currently resolve to their verified source folders. Standalone repository
+migration is prepared; links will change after each destination has been published and validated.
 
-<img height="180em" src="https://github-readme-stats.vercel.app/api?username=maharshimak&show_icons=true&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=00E7FF&icon_color=00E7FF&text_color=FFFFFF&include_all_commits=true" />
-<img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=maharshimak&layout=compact&langs_count=8&theme=tokyonight&hide_border=true&bg_color=00000000&title_color=00E7FF&text_color=FFFFFF" />
+[![Portfolio CI](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml)
+[![AI Labs CI](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml)
 
-<br/>
+## Technical stack
 
-<img src="https://streak-stats.demolab.com?user=maharshimak&theme=tokyonight&hide_border=true&background=00000000&ring=00E7FF&fire=FF6B6B&currStreakLabel=00E7FF" alt="GitHub Streak" />
+Python · SQL · PyTorch · TensorFlow · FastAPI · AWS · Docker · Git · TypeScript · Next.js
 
-</div>
+My broader work includes RAG and document intelligence, knowledge graphs, model evaluation,
+analytics and data pipelines. The public projects use synthetic examples and contain no
+confidential employer code or datasets.
 
-> This is a newly rebuilt engineering profile. Stats will become more meaningful as selected projects and ongoing work are published here.
+## Experience
 
----
+AI engineering and data work with **CERC**, **FPT Software**, **Pangea Summit**,
+**CMI Strategies**, **X & Y Corp** and **Substrate AI**.
 
-## 📈 Activity
+## Connect
 
-<div align="center">
+[Portfolio](https://maharshipatel-portfolio.vercel.app/) ·
+[LinkedIn](https://www.linkedin.com/in/maharshi-patel-6bb638298/) ·
+[Email](mailto:pmaharshi999@gmail.com)
 
-<img width="100%" src="https://github-readme-activity-graph.vercel.app/graph?username=maharshimak&bg_color=00000000&color=9CA3AF&line=00E7FF&point=FFFFFF&area=true&area_color=00E7FF&hide_border=true&custom_title=Maharshi%27s%20Contribution%20Graph" />
-
-</div>
-
----
-
-## 🐍 Contribution Engine
-
-<div align="center">
+## Contributions
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/maharshimak/maharshimak/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/maharshimak/maharshimak/output/github-contribution-grid-snake.svg" />
   <img alt="GitHub contribution snake animation" src="https://raw.githubusercontent.com/maharshimak/maharshimak/output/github-contribution-grid-snake.svg" />
 </picture>
-
-</div>
-
----
-
-## 💡 Current Research / Engineering Interests
-
-<div align="center">
-
-`Agentic RAG` · `Multimodal AI` · `AI Automation` · `LLM Evaluation` · `Knowledge Graphs`  
-`Deep Learning` · `Computer Vision` · `MLOps` · `Production AI` · `Human-AI Interaction`
-
-</div>
-
----
-
-## 🌐 Let's Connect
-
-<div align="center">
-
-<a href="https://maharshipatel-portfolio.vercel.app/">
-  <img src="https://img.shields.io/badge/Explore%20My%20Portfolio-00E7FF?style=for-the-badge&logo=vercel&logoColor=000000" />
-</a>
-<a href="https://www.linkedin.com/in/maharshi-patel-6bb638298/">
-  <img src="https://img.shields.io/badge/Connect%20on%20LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
-</a>
-<a href="mailto:pmaharshi999@gmail.com">
-  <img src="https://img.shields.io/badge/Let's%20Build%20Something-EA4335?style=for-the-badge&logo=gmail&logoColor=white" />
-</a>
-
-<br/><br/>
-
-### `prediction → generation → reasoning → action`
-
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer" />
-
-</div>

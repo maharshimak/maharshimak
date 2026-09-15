@@ -1,5 +1,7 @@
 import sqlite3
+from contextlib import closing
 from pathlib import Path
+from time import monotonic
 
 from data_copilot.models import ColumnInfo, TableInfo
 
@@ -9,13 +11,17 @@ class SQLiteCatalog:
         self.database_path = str(Path(database_path))
 
     def _connect(self) -> sqlite3.Connection:
-        uri = f"file:{Path(self.database_path).resolve()}?mode=ro"
+        uri = Path(self.database_path).resolve().as_uri() + "?mode=ro"
         connection = sqlite3.connect(uri, uri=True)
+        connection.execute("PRAGMA query_only = ON")
+        connection.execute("PRAGMA trusted_schema = OFF")
+        deadline = monotonic() + 2.0
+        connection.set_progress_handler(lambda: int(monotonic() > deadline), 1000)
         connection.row_factory = sqlite3.Row
         return connection
 
     def schema(self) -> list[TableInfo]:
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             tables = connection.execute(
                 """
                 SELECT name
@@ -30,9 +36,7 @@ class SQLiteCatalog:
             for table in tables:
                 name = table["name"]
                 escaped = name.replace('"', '""')
-                columns = connection.execute(
-                    f'PRAGMA table_info("{escaped}")'
-                ).fetchall()
+                columns = connection.execute(f'PRAGMA table_info("{escaped}")').fetchall()
                 result.append(
                     TableInfo(
                         name=name,
@@ -49,7 +53,7 @@ class SQLiteCatalog:
             return result
 
     def execute(self, sql: str) -> tuple[list[str], list[dict[str, object]]]:
-        with self._connect() as connection:
+        with closing(self._connect()) as connection:
             cursor = connection.execute(sql)
             columns = [item[0] for item in cursor.description or []]
             rows = [dict(row) for row in cursor.fetchall()]

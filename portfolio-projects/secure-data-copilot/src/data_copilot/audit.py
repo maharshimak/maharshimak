@@ -29,9 +29,7 @@ def build_event(
 ) -> AuditEvent:
     timestamp = datetime.now(UTC).isoformat()
     fingerprint = sql_fingerprint(sql)
-    event_id = hashlib.sha256(
-        f"{timestamp}:{fingerprint}".encode()
-    ).hexdigest()[:20]
+    event_id = hashlib.sha256(f"{timestamp}:{fingerprint}".encode()).hexdigest()[:20]
     return AuditEvent(
         event_id=event_id,
         timestamp=timestamp,

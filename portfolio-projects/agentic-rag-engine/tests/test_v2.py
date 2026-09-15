@@ -74,8 +74,7 @@ def test_api_index_retrieve_and_answer() -> None:
         "/v1/documents/index",
         json={
             "documents": [
-                {"id": doc.id, "text": doc.text, "metadata": doc.metadata}
-                for doc in DOCS
+                {"id": doc.id, "text": doc.text, "metadata": doc.metadata} for doc in DOCS
             ]
         },
     )

@@ -17,9 +17,7 @@ def evaluate_promotion(
     reasons: list[str] = []
 
     if len(model.evaluations) < require_evaluations:
-        reasons.append(
-            f"requires at least {require_evaluations} evaluation(s)"
-        )
+        reasons.append(f"requires at least {require_evaluations} evaluation(s)")
 
     failed = [item.metric for item in model.evaluations if not item.passed]
     if failed:

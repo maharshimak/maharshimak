@@ -20,9 +20,7 @@ def hybrid_retrieve(
 def citation_context(ids: list[str], docs: list[Document]) -> str:
     lookup = {document.id: document.text for document in docs}
     return "\n\n".join(
-        f"[{document_id}] {lookup[document_id]}"
-        for document_id in ids
-        if document_id in lookup
+        f"[{document_id}] {lookup[document_id]}" for document_id in ids if document_id in lookup
     )
 
 

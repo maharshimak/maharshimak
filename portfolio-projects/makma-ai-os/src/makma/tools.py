@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import ast
+import math
 import operator
 from collections.abc import Awaitable, Callable
 from dataclasses import dataclass
@@ -74,6 +75,8 @@ class ToolRegistry:
             return ToolResult(tool_name=name, ok=False, output="", error="Unknown tool.")
         try:
             policy.check(name, approvals)
+            if tool.requires_approval and name not in approvals:
+                raise ToolPermissionError(f"Tool '{name}' requires explicit approval.")
             output = await tool.handler(arguments, session_id)
             return ToolResult(tool_name=name, ok=True, output=output)
         except (ToolPermissionError, ValueError) as error:
@@ -116,8 +119,13 @@ async def calculator(arguments: dict[str, Any], session_id: str) -> str:
     expression = str(arguments.get("expression", "")).strip()
     if not expression or len(expression) > 200:
         raise ValueError("A short arithmetic expression is required.")
-    tree = ast.parse(expression, mode="eval")
-    value = _evaluate_math(tree)
+    try:
+        tree = ast.parse(expression, mode="eval")
+        value = _evaluate_math(tree)
+        if not isinstance(value, float) or not math.isfinite(value):
+            raise ValueError("Result must be a finite real number.")
+    except (SyntaxError, ArithmeticError, RecursionError) as error:
+        raise ValueError("Invalid or out-of-range arithmetic expression.") from error
     rendered = int(value) if value.is_integer() else round(value, 10)
     return f"{expression} = {rendered}"
 

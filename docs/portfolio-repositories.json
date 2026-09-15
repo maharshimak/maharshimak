@@ -1,0 +1,90 @@
+{
+  "makma-ai-os": {
+    "description": "Personal AI runtime with SQLite memory, deterministic tool planning, permission checks and local/model-server adapters.",
+    "topics": [
+      "ai-agents",
+      "llm",
+      "python",
+      "fastapi",
+      "ollama"
+    ]
+  },
+  "agentic-rag-engine": {
+    "description": "Inspectable RAG pipeline with text chunking, BM25 retrieval, vector ranking, reciprocal-rank fusion, citations and evaluation.",
+    "topics": [
+      "rag",
+      "llm",
+      "python",
+      "fastapi",
+      "retrieval",
+      "nlp"
+    ]
+  },
+  "multimodal-ai-studio": {
+    "description": "Prompt-to-edit planning prototype that converts supported phrases into ordered media-operation specifications.",
+    "topics": [
+      "multimodal-ai",
+      "python",
+      "video",
+      "image-processing"
+    ]
+  },
+  "knowledge-twin": {
+    "description": "In-memory entity and relationship graph for evidence-bearing edges, directed traversal and keyword retrieval.",
+    "topics": [
+      "knowledge-graph",
+      "python",
+      "retrieval"
+    ]
+  },
+  "clinical-document-intelligence": {
+    "description": "Rule-based extraction and validation of structured study fields from synthetic clinical-style text.",
+    "topics": [
+      "document-ai",
+      "nlp",
+      "python",
+      "information-extraction",
+      "synthetic-data"
+    ]
+  },
+  "secure-data-copilot": {
+    "description": "Local read-only SQLite analytics with deterministic planning, SQL restrictions, bounded results and query audit metadata.",
+    "topics": [
+      "sql",
+      "python",
+      "fastapi",
+      "analytics",
+      "ai-agents"
+    ]
+  },
+  "llm-eval-observability": {
+    "description": "Offline experiment evaluation for lexical relevance, expected citations, forbidden phrases, reported latency and estimated cost.",
+    "topics": [
+      "llm",
+      "llmops",
+      "observability",
+      "python",
+      "testing"
+    ]
+  },
+  "mlops-control-plane": {
+    "description": "In-memory model registry demonstrating evaluation gates, controlled promotion, dataset fingerprints and distribution drift.",
+    "topics": [
+      "mlops",
+      "machine-learning",
+      "python",
+      "model-registry",
+      "drift-detection"
+    ]
+  },
+  "mlops-production-pipeline": {
+    "description": "Dependency-light ML lifecycle building blocks: deterministic linear regression, held-out MAE, quality gates and PSI drift.",
+    "topics": [
+      "mlops",
+      "machine-learning",
+      "python",
+      "testing",
+      "monitoring"
+    ]
+  }
+}
