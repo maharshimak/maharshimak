@@ -1,39 +1,147 @@
-# Maharshi Patel — Engineering Portfolio
+# Maharshi Patel — AI Engineering Portfolio
 
-This directory contains **nine focused AI engineering projects** covering agentic systems, retrieval, multimodal pipelines, knowledge systems, document intelligence, MLOps, data-agent safety and LLM reliability.
+<div align="center">
 
-| Project | Focus |
-|---|---|
-| [Mak'ma AI OS](./makma-ai-os/) | Agent orchestration, memory, tools, personal AI architecture |
-| [Agentic RAG Engine](./agentic-rag-engine/) | Hybrid retrieval, fusion, citations and evaluation |
-| [Multimodal AI Studio](./multimodal-ai-studio/) | Prompt-driven media-edit planning and multimodal workflows |
-| [Knowledge Twin](./knowledge-twin/) | Knowledge graphs, semantic retrieval and entity relationships |
-| [Clinical Document Intelligence](./clinical-document-intelligence/) | Synthetic clinical-document extraction and validation |
-| [MLOps Production Pipeline](./mlops-production-pipeline/) | Training lifecycle, evaluation gates and drift metrics |
-| [Secure Data Copilot](./secure-data-copilot/) | Read-only SQL agent architecture, policy enforcement and analytics |
-| [LLM Eval & Observability](./llm-eval-observability/) | LLM/RAG regression metrics, latency/cost tracking and release gates |
-| [MLOps Control Plane](./mlops-control-plane/) | Model registry, dataset fingerprints, promotion policy and drift monitoring |
+**Nine focused AI engineering systems spanning agentic AI, RAG, multimodal workflows, knowledge intelligence, document AI, LLM evaluation and MLOps.**
 
-## Engineering standards
+[![Portfolio CI](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml)
+[![Production AI Labs CI](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml)
 
-Each project is built with the same principles:
+</div>
 
-- clear architecture and explicit component boundaries;
-- testable core logic rather than notebook-only demos;
-- no private employer code, proprietary datasets or copied internal architecture;
-- no committed credentials;
-- container-ready structure where relevant;
-- automated CI;
-- explicit roadmap and limitations;
-- honest distinction between implemented features and planned features;
-- documentation that explains both the **why** and the **how**.
+---
 
-## Production AI Labs
+## 🦾 Flagship System
 
-The newest projects focus specifically on **safe, observable and governable AI systems**:
+### [Mak'ma AI OS](./makma-ai-os/)
 
-- **Secure Data Copilot** — demonstrates how an AI/data assistant can be constrained by read-only connections, SQL policy, row budgets and audit metadata.
-- **LLM Eval & Observability** — treats AI quality as a measurable release signal using relevance, citations, forbidden-output detection, latency and cost.
-- **MLOps Control Plane** — models the lifecycle from registered artifact to candidate to production, with explicit evaluation gates and drift monitoring.
+Personal AI runtime exploring **persistent memory, provider routing, local/Ollama/OpenAI-compatible model servers, permissioned tools, deterministic planning, run history, tool traces, SSE streaming, FastAPI and Docker persistence**.
 
-These are public portfolio implementations built from scratch.
+`AI Agents` `Memory` `Tool Use` `Local LLMs` `FastAPI`
+
+---
+
+## 🚀 Core AI Systems
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🧠 [Agentic RAG Engine](./agentic-rag-engine/)
+
+Inspectable retrieval pipeline with **ingestion, chunking, lexical + semantic-style retrieval, reciprocal-rank fusion, reranking, citation-aware context construction and evaluation**.
+
+`RAG` `Hybrid Retrieval` `Citations` `Evaluation`
+
+</td>
+<td width="50%" valign="top">
+
+### 🎬 [Multimodal AI Studio](./multimodal-ai-studio/)
+
+AI-assisted media orchestration for translating **natural-language editing intent into structured, validated image/video operation graphs**.
+
+`Multimodal AI` `Media AI` `Planning` `Vision`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### 🌐 [Knowledge Twin](./knowledge-twin/)
+
+Knowledge intelligence architecture for **entities, relationships, evidence-bearing edges, graph traversal and semantic-style retrieval**.
+
+`Knowledge Graphs` `NLP` `Retrieval` `Reasoning`
+
+</td>
+<td width="50%" valign="top">
+
+### 🧬 [Clinical Document Intelligence](./clinical-document-intelligence/)
+
+Safe public portfolio pipeline for **extracting, normalizing and validating structured information from synthetic clinical-style text**.
+
+`Document AI` `NLP` `Extraction` `Validation`
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🧪 Production AI & Reliability Labs
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🔐 [Secure Data Copilot](./secure-data-copilot/)
+
+Security-focused analytics assistant with **schema awareness, read-only SQL policy enforcement, bounded execution, query auditing and safe result summarization**.
+
+`Data Agents` `SQL Safety` `FastAPI` `Analytics`
+
+</td>
+<td width="50%" valign="top">
+
+### 🔭 [LLM Eval & Observability](./llm-eval-observability/)
+
+Evaluation toolkit covering **relevance, citation coverage, forbidden outputs, latency, cost, regression testing and release gates**.
+
+`LLMOps` `Evaluation` `Observability` `Quality Gates`
+
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+
+### ⚙️ [MLOps Control Plane](./mlops-control-plane/)
+
+Model lifecycle governance with **registry concepts, dataset fingerprints, evaluation gates, controlled promotion and drift monitoring**.
+
+`MLOps` `Registry` `Drift` `Governance`
+
+</td>
+<td width="50%" valign="top">
+
+### 🔁 [MLOps Production Pipeline](./mlops-production-pipeline/)
+
+Reproducible ML lifecycle building blocks for **training, held-out evaluation, model metadata, quality gates, monitoring and CI validation**.
+
+`Training` `Testing` `Monitoring` `CI/CD`
+
+</td>
+</tr>
+</table>
+
+---
+
+## Engineering Standards
+
+Across the portfolio, I aim for:
+
+- **inspectable architecture** instead of opaque demo logic;
+- **testable core components** rather than notebook-only prototypes;
+- **explicit security boundaries** for tools, SQL and model promotion flows;
+- **synthetic/public-safe data** for portfolio examples;
+- **no employer-confidential code or proprietary datasets**;
+- **no committed credentials or API keys**;
+- **automated linting and tests**;
+- **container-ready structure where it adds value**;
+- **clear limitations and roadmap sections**;
+- an honest distinction between **implemented**, **experimental** and **planned** capabilities.
+
+---
+
+## Why these projects
+
+This portfolio is designed to demonstrate more than model experimentation. The projects cover the surrounding engineering needed to make AI systems useful and inspectable: **retrieval, memory, tool permissions, structured extraction, evaluation, observability, model lifecycle controls, data safety and deployment-oriented APIs**.
+
+The long-term repository structure is being split so each system can stand independently with its own history, CI, documentation and release surface. Until that migration is complete, the verified source of each project remains the linked folder above.
+
+---
+
+<div align="center">
+
+[**Back to my GitHub profile →**](../README.md) · [**Portfolio website →**](https://maharshipatel-portfolio.vercel.app/) · [**LinkedIn →**](https://www.linkedin.com/in/maharshi-patel-6bb638298/)
+
+</div>
