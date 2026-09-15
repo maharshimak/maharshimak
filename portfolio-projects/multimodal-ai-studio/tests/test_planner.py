@@ -11,6 +11,4 @@ def test_plan_orders_effects() -> None:
 
 
 def test_export() -> None:
-    assert '"operation": "audio_denoise"' in to_json(
-        plan("remove background noise")
-    )
+    assert '"operation": "audio_denoise"' in to_json(plan("remove background noise"))

@@ -1,7 +1,7 @@
 from dataclasses import asdict
 
 from fastapi import FastAPI
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 from llm_eval.gates import regression_gate
 from llm_eval.models import EvalCase, ModelOutput
@@ -18,14 +18,20 @@ class EvalItem(BaseModel):
     expected_terms: list[str] = Field(default_factory=list)
     expected_citations: list[str] = Field(default_factory=list)
     forbidden_phrases: list[str] = Field(default_factory=list)
-    latency_ms: float = 0
-    input_tokens: int = 0
-    output_tokens: int = 0
+    latency_ms: float = Field(default=0, ge=0, allow_inf_nan=False)
+    input_tokens: int = Field(default=0, ge=0)
+    output_tokens: int = Field(default=0, ge=0)
 
 
 class EvaluateRequest(BaseModel):
     experiment: str
-    items: list[EvalItem]
+    items: list[EvalItem] = Field(min_length=1, max_length=1000)
+
+    @model_validator(mode="after")
+    def unique_ids(self):
+        if len({item.id for item in self.items}) != len(self.items):
+            raise ValueError("Evaluation item IDs must be unique.")
+        return self
 
 
 @app.get("/health")

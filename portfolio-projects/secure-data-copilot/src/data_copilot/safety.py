@@ -35,6 +35,8 @@ def _tokens(sql: str) -> set[str]:
 
 
 def validate_read_only(sql: str, max_rows: int = 200) -> str:
+    if isinstance(max_rows, bool) or not isinstance(max_rows, int) or not 1 <= max_rows <= 1000:
+        raise UnsafeQueryError("max_rows must be an integer between 1 and 1000.")
     normalized = normalize_sql(sql)
     lowered = normalized.lower()
 
@@ -50,20 +52,8 @@ def validate_read_only(sql: str, max_rows: int = 200) -> str:
 
     blocked = sorted(_tokens(normalized).intersection(FORBIDDEN))
     if blocked:
-        raise UnsafeQueryError(
-            f"Forbidden SQL operation(s): {', '.join(blocked)}"
-        )
+        raise UnsafeQueryError(f"Forbidden SQL operation(s): {', '.join(blocked)}")
 
-    match = re.search(r"\blimit\s+(\d+)\b", lowered)
-    if match:
-        current = int(match.group(1))
-        if current > max_rows:
-            normalized = re.sub(
-                r"\blimit\s+\d+\b",
-                f"LIMIT {max_rows}",
-                normalized,
-                flags=re.IGNORECASE,
-            )
-        return normalized
-
-    return f"{normalized} LIMIT {max_rows}"
+    # Bound the outer result regardless of nested LIMITs, literals or comments.
+    # Newlines prevent a trailing SQL line comment from swallowing the wrapper.
+    return f"SELECT * FROM (\n{normalized}\n) AS bounded_result LIMIT {max_rows}"

@@ -13,6 +13,4 @@ def test_chart_inference_for_category_and_metric() -> None:
 
 
 def test_sql_fingerprint_is_normalized() -> None:
-    assert sql_fingerprint("SELECT  * FROM orders") == sql_fingerprint(
-        "select * from orders"
-    )
+    assert sql_fingerprint("SELECT  * FROM orders") == sql_fingerprint("select * from orders")

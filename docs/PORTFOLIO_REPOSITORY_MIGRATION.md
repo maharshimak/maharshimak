@@ -1,128 +1,75 @@
-# Portfolio Repository Migration
+# Portfolio repository migration
 
-This repository currently contains multiple independent engineering projects under `portfolio-projects/`. The goal of this migration is to turn each project into a first-class standalone GitHub repository while preserving project-specific commit history.
+The nine projects are currently retained under `portfolio-projects/`. Public source
+cleanup must wait for verified standalone repositories and successful Actions.
 
-## Target repositories
+## Preparation and publication
 
-1. `maharshimak/makma-ai-os`
-2. `maharshimak/agentic-rag-engine`
-3. `maharshimak/multimodal-ai-studio`
-4. `maharshimak/knowledge-twin`
-5. `maharshimak/clinical-document-intelligence`
-6. `maharshimak/secure-data-copilot`
-7. `maharshimak/llm-eval-observability`
-8. `maharshimak/mlops-control-plane`
-9. `maharshimak/mlops-production-pipeline`
+`scripts/split-portfolio-repos.py` replaces the initial command-string PowerShell
+implementation. The PowerShell entry point now delegates using an argument array.
 
-## Why split them
+Requirements: a full clean clone on `main`, Python 3.12+, Git, `git-filter-repo`,
+and Docker. Publishing additionally requires GitHub CLI authenticated as the target
+owner with repository creation/push permissions. Never paste credentials into files.
 
-The profile repository should function as the portfolio landing page. Keeping substantial projects nested inside it hides them from the GitHub repository list, makes pinning impossible, weakens repository-level discovery, and mixes unrelated CI/dependency concerns.
-
-Standalone repositories provide each project with its own:
-
-- repository card and pinned-profile visibility;
-- description, homepage and topics;
-- issue tracker and roadmap;
-- CI workflow and dependency management;
-- releases and version history;
-- security/contribution documentation;
-- stars, forks and project-specific activity;
-- clean clone/install experience.
-
-## Automated split
-
-The PowerShell migration script is:
-
-```text
-scripts/split-portfolio-repos.ps1
+```bash
+python -m pip install git-filter-repo
+python scripts/split-portfolio-repos.py --dry-run
+python scripts/split-portfolio-repos.py --output ../portfolio-verified
 ```
 
-It is intentionally conservative. It:
+The default operation prepares isolated repositories and validates them. To prepare,
+validate and then publish in one invocation, choose a fresh output directory:
 
-1. verifies that `git` and GitHub CLI (`gh`) are available;
-2. verifies GitHub authentication;
-3. refuses to run from a dirty working tree;
-4. creates a public standalone repository when it does not exist;
-5. accepts an already-created repository only when it is empty;
-6. refuses to overwrite a non-empty repository;
-7. uses `git subtree split` so each project keeps the commits that affected its directory;
-8. pushes that split history as the new repository's `main` branch;
-9. configures portfolio homepage and project-specific GitHub topics;
-10. leaves the original monorepo folders untouched until validation is complete.
+```bash
+python scripts/split-portfolio-repos.py --output ../portfolio-publish --publish
+```
 
-## Windows execution
-
-From a clean local clone of `maharshimak/maharshimak`:
+For PowerShell:
 
 ```powershell
-git checkout main
-git pull
-pwsh -File .\scripts\split-portfolio-repos.ps1 -DryRun
-pwsh -File .\scripts\split-portfolio-repos.ps1
+./scripts/split-portfolio-repos.ps1 -DryRun
+./scripts/split-portfolio-repos.ps1 -Output ../portfolio-publish -Publish
 ```
 
-If PowerShell 7 (`pwsh`) is not available, Windows PowerShell can run the script with:
+`--dry-run` is read-only and lists the plan; it does not claim any validation ran.
+The output directory must not exist. A stopped run preserves its local artifacts.
+The script never deletes/recreates remote repositories or force-pushes. If publication
+stops partway, inspect the verified local splits and existing destinations before
+resuming manually; a blind rerun will intentionally refuse non-empty destinations.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\split-portfolio-repos.ps1
-```
+## Safety and verification
 
-## Required tools
+1. Check source identity, clean tree, full history and main commit.
+2. Clone each project into an isolated repository using `git-filter-repo`.
+3. Compare the split root tree with the exact source subtree hash.
+4. Inspect every reachable blob for common credential patterns and sensitive filenames.
+5. Install each package in a separate virtual environment; run lint and tests.
+6. Build a distributable wheel and a real Docker image.
+7. Only after all nine pass, create or inspect each public destination.
+8. Refuse any destination with existing refs, regardless of repository size.
+9. Push without force, verify remote main SHA, and configure metadata.
 
-```powershell
-git --version
-gh --version
-gh auth status
-```
+The credential scan is heuristic, not proof that code is free of all confidential
+information. Manually review source and fixtures before publication. A suspected
+secret blocks publication; remediate the affected history and repeat validation.
+Authentic author dates/messages are retained when filtering; commit IDs change
+because project paths and ancestry change. No historical contributions are fabricated.
 
-If GitHub CLI is installed but not authenticated:
+Descriptions and topics are in [portfolio-repositories.json](portfolio-repositories.json).
 
-```powershell
-gh auth login
-```
+## Cleanup gate
 
-Use the GitHub.com account `maharshimak` and grant repository permissions when prompted.
+For every standalone repository verify public visibility, main branch, expected
+files/history, readable README, working links, installation, lint/tests, Docker and
+successful Actions. Confirm description, homepage, topics and MIT license.
 
-## Validation after the split
+Then create a separate profile cleanup PR to replace project links, remove only the
+verified migrated folders, remove the two monorepo CI workflows and migrate/remove
+monorepo Dependabot configuration. Keep the profile snake workflow and useful migration
+documentation. Merge only after profile links and remaining workflows are healthy.
 
-Do **not** remove the original folders immediately. Validate every new repository first:
+Never replace working links with links to repositories that do not yet exist.
 
-- README renders correctly from the repository root;
-- relative documentation/image links still work;
-- package/import paths do not depend on the old monorepo location;
-- tests pass from a fresh clone;
-- linting passes;
-- Docker builds where applicable;
-- CI runs successfully;
-- no credentials, `.env` files, private employer code, confidential data or generated local state are present;
-- repository description, homepage and topics are correct.
-
-## Follow-up work
-
-After all nine repositories are healthy:
-
-1. add dedicated per-repository GitHub Actions workflows;
-2. add/update `.gitignore`, `.env.example`, security and contribution files;
-3. improve project READMEs with architecture, setup, API examples and roadmap;
-4. add screenshots/demo media where useful;
-5. update the profile `README.md` links to the standalone repositories;
-6. pin the strongest six repositories on the GitHub profile;
-7. remove `portfolio-projects/*` from the profile repository in a separate cleanup PR;
-8. simplify profile-repository CI/Dependabot so it only manages profile-specific content.
-
-## Recommended pinned repositories
-
-The initial six should be:
-
-1. `makma-ai-os`
-2. `agentic-rag-engine`
-3. `multimodal-ai-studio`
-4. `knowledge-twin`
-5. `secure-data-copilot`
-6. `llm-eval-observability`
-
-The remaining repositories still provide valuable depth but should not crowd the first recruiter-facing view.
-
-## Rollback safety
-
-The migration script does not delete source folders or rewrite the profile repository's history. If a new repository needs to be rebuilt, delete/recreate that standalone repository or fix it independently while the original project remains available here.
+Recommended pins: Mak'ma AI OS, Agentic RAG Engine, Multimodal AI Studio, Knowledge Twin,
+Secure Data Copilot, LLM Eval & Observability. Pinning is a separate profile UI action.

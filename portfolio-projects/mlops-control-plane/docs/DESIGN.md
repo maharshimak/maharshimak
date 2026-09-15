@@ -1,18 +1,19 @@
-# Design notes
+# Design and operating boundaries
 
-The control plane separates model metadata from training code.
+In-memory model registry demonstrating evaluation gates, controlled promotion, dataset fingerprints and distribution drift.
 
-A training job should produce an immutable model artifact and dataset fingerprint. The control plane receives that metadata, stores evaluations, and decides whether the artifact can move through lifecycle stages.
+## Scope
 
-## Stage rules
+The API registry is process-local and loses state on restart. JSONL state, lineage and canary helpers are separate utilities, not deployment integrations. Artifact URIs are metadata; artifacts are not uploaded or verified. Registered models enter through gates, but library callers receive mutable model objects and are trusted. Thresholds are supplied by callers rather than an independent governance authority. No authentication, durable transactional registry, cloud deployment or automated rollback is implemented.
 
-- registered: artifact exists but has not passed gates
-- candidate: all required gates have passed
-- production: active production version
-- archived: superseded production model
+## Interfaces
 
-Promoting a new production version automatically archives the previous production version with the same model name.
+Implementation lives in `src/mlops_cp/`. Public examples in the README use its Python API. FastAPI exposes the same local capabilities; `/openapi.json` is the endpoint schema.
 
-## Production extension
+## Validation
 
-The in-memory registry can be replaced with a database or MLflow adapter while keeping policy logic independent of storage.
+Tests include synthetic regression fixtures. Package and container checks verify installation separately from source-tree imports. Tests do not certify general model quality, clinical correctness or multi-tenant isolation.
+
+## Planned evolution
+
+Transactional persistence; immutable records; independent policy configuration; artifact checksums; authenticated approvals; deployment adapters.

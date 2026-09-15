@@ -16,8 +16,7 @@ def infer_chart_spec(rows: list[dict[str, Any]]) -> dict[str, Any] | None:
         column
         for column in columns
         if all(
-            isinstance(row.get(column), Number)
-            and not isinstance(row.get(column), bool)
+            isinstance(row.get(column), Number) and not isinstance(row.get(column), bool)
             for row in rows
         )
     ]

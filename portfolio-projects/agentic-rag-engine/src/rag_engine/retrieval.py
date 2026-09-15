@@ -1,21 +1,22 @@
 from collections import Counter
 from dataclasses import replace
-from math import log
+from math import isfinite, log, sqrt
 
 from rag_engine.embeddings import EmbeddingProvider, HashEmbeddingProvider
 from rag_engine.models import Chunk, ScoredChunk
 
 
 def tokenize(text: str) -> list[str]:
-    return [
-        token.strip(".,!?;:()[]{}\"'").lower()
-        for token in text.split()
-        if token.strip()
-    ]
+    return [token.strip(".,!?;:()[]{}\"'").lower() for token in text.split() if token.strip()]
 
 
 def cosine_similarity(a: list[float], b: list[float]) -> float:
-    return sum(x * y for x, y in zip(a, b))
+    if len(a) != len(b) or not a:
+        raise ValueError("Embedding dimensions must match and be non-empty.")
+    if not all(isfinite(v) for v in [*a, *b]):
+        raise ValueError("Embeddings must contain finite values.")
+    norm = sqrt(sum(x * x for x in a)) * sqrt(sum(y * y for y in b))
+    return sum(x * y for x, y in zip(a, b)) / norm if norm else 0.0
 
 
 class BM25Index:
@@ -46,9 +47,7 @@ class BM25Index:
                     continue
                 df = self.document_frequency[term]
                 idf = log(1.0 + (total - df + 0.5) / (df + 0.5))
-                denominator = frequency + self.k1 * (
-                    1 - self.b + self.b * length / self.avg_length
-                )
+                denominator = frequency + self.k1 * (1 - self.b + self.b * length / self.avg_length)
                 score += idf * (frequency * (self.k1 + 1)) / denominator
             if score > 0:
                 scored.append(
@@ -70,6 +69,8 @@ class VectorIndex:
         self.chunks = chunks
         self.provider = provider or HashEmbeddingProvider()
         self.vectors = self.provider.embed([chunk.text for chunk in chunks])
+        if len(self.vectors) != len(chunks):
+            raise ValueError("Embedding provider returned the wrong number of vectors.")
 
     def search(self, query: str, top_k: int = 20) -> list[ScoredChunk]:
         if not self.chunks:

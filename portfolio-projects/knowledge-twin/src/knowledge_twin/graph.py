@@ -34,6 +34,10 @@ class KnowledgeGraph:
         self.adj[edge.source].append(edge)
 
     def neighborhood(self, start: str, depth: int = 1) -> set[str]:
+        if start not in self.entities:
+            raise ValueError("Start entity does not exist.")
+        if depth < 0:
+            raise ValueError("Depth must be non-negative.")
         seen = {start}
         queue = deque([(start, 0)])
         while queue:
@@ -47,6 +51,8 @@ class KnowledgeGraph:
         return seen
 
     def search(self, query: str, top_k: int = 5) -> list[Entity]:
+        if top_k <= 0:
+            raise ValueError("top_k must be positive.")
         terms = set(query.lower().split())
         scored = []
         for entity in self.entities.values():

@@ -1,5 +1,5 @@
 from collections.abc import Callable
-from math import ceil
+from math import ceil, isfinite
 
 from llm_eval.metrics import (
     citation_coverage,
@@ -49,10 +49,24 @@ class ExperimentRunner:
         cases: list[EvalCase],
         candidate: Candidate,
     ) -> ExperimentSummary:
+        if not cases or len({case.id for case in cases}) != len(cases):
+            raise ValueError("Evaluation requires non-empty cases with unique IDs.")
+        if any(
+            not isfinite(v) or v < 0
+            for v in (self.input_per_million, self.output_per_million, self.max_latency_ms)
+        ):
+            raise ValueError("Costs and latency budget must be finite and non-negative.")
         evaluated: list[CaseMetrics] = []
 
         for case in cases:
             output = candidate(case)
+            if not isfinite(output.latency_ms) or output.latency_ms < 0:
+                raise ValueError("Latency must be finite and non-negative.")
+            if any(
+                isinstance(n, bool) or not isinstance(n, int) or n < 0
+                for n in (output.input_tokens, output.output_tokens)
+            ):
+                raise ValueError("Token counts must be non-negative integers.")
             rel = relevance(case, output)
             citations = citation_coverage(case, output)
             forbidden = contains_forbidden(case, output)
@@ -85,15 +99,11 @@ class ExperimentRunner:
             name=name,
             pass_rate=sum(item.passed for item in evaluated) / count,
             mean_relevance=sum(item.relevance for item in evaluated) / count,
-            mean_citation_coverage=sum(
-                item.citation_coverage for item in evaluated
-            ) / count,
+            mean_citation_coverage=sum(item.citation_coverage for item in evaluated) / count,
             latency_p95_ms=percentile(
                 [item.latency_ms for item in evaluated],
                 0.95,
             ),
-            mean_cost_usd=sum(
-                item.estimated_cost_usd for item in evaluated
-            ) / count,
+            mean_cost_usd=sum(item.estimated_cost_usd for item in evaluated) / count,
             cases=evaluated,
         )

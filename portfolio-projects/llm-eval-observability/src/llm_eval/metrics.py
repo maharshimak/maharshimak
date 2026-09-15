@@ -33,6 +33,5 @@ def estimated_cost(
     output_per_million: float,
 ) -> float:
     return (
-        output.input_tokens * input_per_million
-        + output.output_tokens * output_per_million
+        output.input_tokens * input_per_million + output.output_tokens * output_per_million
     ) / 1_000_000

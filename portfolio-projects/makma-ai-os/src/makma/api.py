@@ -22,8 +22,7 @@ def create_app(runtime: MakmaRuntime | None = None) -> FastAPI:
         title="Mak'ma AI OS",
         version="1.0.0",
         description=(
-            "Tool-using AI runtime with persistent memory, provider routing, "
-            "and audit traces."
+            "Tool-using AI runtime with persistent memory, provider routing, and audit traces."
         ),
     )
     app.state.runtime = runtime

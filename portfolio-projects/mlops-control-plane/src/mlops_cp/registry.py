@@ -11,8 +11,8 @@ class ModelRegistry:
     def register(self, model: ModelVersion) -> ModelVersion:
         if model.key in self._models:
             raise ValueError(f"Model version already exists: {model.key}")
-        if model.stage not in ALLOWED_STAGES:
-            raise ValueError(f"Unknown model stage: {model.stage}")
+        if model.stage != "registered":
+            raise ValueError("New models must enter in the registered stage.")
         self._models[model.key] = model
         return model
 
@@ -44,6 +44,8 @@ class ModelRegistry:
         model = self.get(name, version)
         if model.stage != "candidate":
             raise ValueError("Only candidate models may be promoted to production.")
+        if not evaluate_promotion(model).allowed:
+            raise ValueError("Current evaluations no longer satisfy promotion policy.")
 
         for other in self._models.values():
             if other.name == name and other.stage == "production":

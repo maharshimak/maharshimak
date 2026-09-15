@@ -7,6 +7,7 @@ Intervention: Example compound
 Primary Endpoint: Change in synthetic score at week 12
 """
 
+
 def test_extract_synthetic_document() -> None:
     record = extract(SYNTHETIC)
     assert record.study_id == "DEMO-101"

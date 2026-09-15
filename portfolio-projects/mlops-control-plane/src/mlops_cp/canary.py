@@ -37,10 +37,7 @@ def evaluate_canary(
     reasons: list[str] = []
     if candidate.error_rate - production.error_rate > max_error_rate_increase:
         reasons.append("error-rate regression")
-    if (
-        candidate.p95_latency_ms - production.p95_latency_ms
-        > max_latency_increase_ms
-    ):
+    if candidate.p95_latency_ms - production.p95_latency_ms > max_latency_increase_ms:
         reasons.append("latency regression")
     if production.quality_score - candidate.quality_score > max_quality_drop:
         reasons.append("quality regression")

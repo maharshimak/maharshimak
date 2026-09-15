@@ -1,4 +1,5 @@
 import json
+from copy import deepcopy
 from dataclasses import asdict, dataclass
 
 
@@ -18,7 +19,7 @@ KEYWORDS: list[tuple[tuple[str, ...], EditNode]] = [
     (("noise", "denoise"), EditNode("audio_denoise", {"strength": 0.7}, "audio")),
     (("subtitle", "captions"), EditNode("subtitles", {"mode": "auto"}, "overlay")),
     (
-        ("background",),
+        ("remove background", "replace background", "background segmentation"),
         EditNode("background_segmentation", {"mode": "subject"}, "vision"),
     ),
 ]
@@ -35,9 +36,12 @@ STAGE_ORDER = {
 def plan(prompt: str) -> list[EditNode]:
     lower = prompt.lower()
     nodes = [
-        node
+        deepcopy(node)
         for keys, node in KEYWORDS
         if any(key in lower for key in keys)
+        and not (
+            node.operation == "background_segmentation" and "background noise" in lower
+        )
     ]
     deduped = {node.operation: node for node in nodes}
     return sorted(deduped.values(), key=lambda n: STAGE_ORDER[n.stage])

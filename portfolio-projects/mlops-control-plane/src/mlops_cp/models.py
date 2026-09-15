@@ -1,5 +1,6 @@
 from dataclasses import dataclass, field
 from datetime import UTC, datetime
+from math import isfinite
 
 
 def utc_now() -> str:
@@ -15,6 +16,8 @@ class Evaluation:
 
     @property
     def passed(self) -> bool:
+        if not isfinite(self.value) or not isfinite(self.threshold):
+            return False
         if self.higher_is_better:
             return self.value >= self.threshold
         return self.value <= self.threshold
