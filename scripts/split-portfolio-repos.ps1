@@ -22,7 +22,9 @@ function Invoke-Step {
     Write-Host "`n> $Command" -ForegroundColor Cyan
     if (-not $DryRun) {
         Invoke-Expression $Command
-        if ($LASTEXITCODE -ne 0) { throw "Command failed with exit code $LASTEXITCODE: $Command" }
+        if ($LASTEXITCODE -ne 0) {
+            throw "Command failed with exit code $LASTEXITCODE: $Command"
+        }
     }
 }
 
@@ -35,7 +37,9 @@ foreach ($cmd in @("git", "gh")) {
 Invoke-Step "gh auth status"
 
 $insideRepo = git rev-parse --is-inside-work-tree 2>$null
-if ($insideRepo -ne "true") { throw "Run this script from a clone of maharshimak/maharshimak." }
+if ($insideRepo -ne "true") {
+    throw "Run this script from a clone of maharshimak/maharshimak."
+}
 
 $origin = git remote get-url origin
 if ($origin -notmatch "maharshimak/maharshimak") {
@@ -43,7 +47,7 @@ if ($origin -notmatch "maharshimak/maharshimak") {
 }
 
 if ((git status --porcelain) -and -not $DryRun) {
-    throw "Working tree is not clean. Commit/stash local changes before splitting repositories."
+    throw "Working tree is not clean. Commit or stash local changes before splitting repositories."
 }
 
 foreach ($project in $Projects) {
@@ -60,23 +64,38 @@ foreach ($project in $Projects) {
         throw "Project directory not found: $prefix"
     }
 
-    # Create the standalone repository only when it does not already exist.
     & gh repo view $repo --json name *> $null
     $repoExists = ($LASTEXITCODE -eq 0)
 
-    if (-not $repoExists) {
+    if ($repoExists) {
+        $repoSizeText = (& gh api "repos/$repo" --jq '.size').Trim()
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not inspect existing repository $repo."
+        }
+        $repoSize = [int]$repoSizeText
+        if ($repoSize -gt 0) {
+            throw "Refusing to overwrite non-empty repository $repo (size=$repoSize KB)."
+        }
+        Write-Host "Using existing empty repository: $repo" -ForegroundColor Yellow
+    } else {
         $descEscaped = $project.Description.Replace('"','\"')
         Invoke-Step "gh repo create $repo --public --description `"$descEscaped`""
-    } else {
-        Write-Host "Repository already exists: $repo" -ForegroundColor Yellow
     }
 
-    # Preserve only the commit history that touched this project directory.
-    Invoke-Step "git branch -D $splitBranch 2>`$null"
+    # Remove a stale temporary split branch only when it exists.
+    $existingSplit = git branch --list $splitBranch
+    if ($existingSplit -and -not $DryRun) {
+        git branch -D $splitBranch | Out-Null
+        if ($LASTEXITCODE -ne 0) {
+            throw "Could not remove stale split branch $splitBranch."
+        }
+    }
+
+    # Preserve the commit history that touched this project directory.
     Invoke-Step "git subtree split --prefix=`"$prefix`" -b `"$splitBranch`""
 
     # Push the split history as the standalone repository's main branch.
-    Invoke-Step "git push --force `"https://github.com/$repo.git`" `"$splitBranch`:main"
+    Invoke-Step "git push `"https://github.com/$repo.git`" `"$splitBranch`:main"
 
     # Add recruiter-friendly metadata.
     $topicArgs = ($project.Topics | ForEach-Object { "--add-topic `"$_`"" }) -join " "
@@ -89,4 +108,4 @@ foreach ($project in $Projects) {
 
 Write-Host "`nAll standalone repositories have been created and populated." -ForegroundColor Green
 Write-Host "The source folders were intentionally NOT deleted from maharshimak/maharshimak." -ForegroundColor Yellow
-Write-Host "Next: validate CI/README in each repo, then update the profile README and remove migrated folders in a separate PR." -ForegroundColor Yellow
+Write-Host "Next: validate each standalone repo, then update the profile README and remove migrated folders in a separate PR." -ForegroundColor Yellow
