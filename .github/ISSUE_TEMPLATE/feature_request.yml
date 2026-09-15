@@ -1,0 +1,53 @@
+name: Feature request
+description: Propose a focused improvement to a portfolio project
+title: "feat: "
+labels: []
+body:
+  - type: dropdown
+    id: project
+    attributes:
+      label: Project
+      options:
+        - makma-ai-os
+        - agentic-rag-engine
+        - multimodal-ai-studio
+        - knowledge-twin
+        - clinical-document-intelligence
+        - secure-data-copilot
+        - llm-eval-observability
+        - mlops-control-plane
+        - mlops-production-pipeline
+        - profile / repository infrastructure
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What user or engineering problem should this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed approach
+      description: Describe the capability, interface or architectural direction.
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Why it matters
+      description: Explain the expected user, reliability, safety or engineering benefit.
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks or trade-offs
+      description: Include security, privacy, model-quality, performance or maintenance concerns where relevant.
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Scope check
+      options:
+        - label: This request does not require private employer code, proprietary data or secrets.
+          required: true
