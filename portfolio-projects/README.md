@@ -6,6 +6,7 @@
 
 [![Portfolio CI](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml)
 [![Production AI Labs CI](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml)
+[![Security History Audit](https://github.com/maharshimak/maharshimak/actions/workflows/security-history-audit.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/security-history-audit.yml)
 
 </div>
 
@@ -126,6 +127,7 @@ Across the portfolio, I aim for:
 - **no employer-confidential code or proprietary datasets**;
 - **no committed credentials or API keys**;
 - **automated linting and tests**;
+- **full-history credential scanning** as an ongoing CI guardrail;
 - **container-ready structure where it adds value**;
 - **clear limitations and roadmap sections**;
 - an honest distinction between **implemented**, **experimental** and **planned** capabilities.
