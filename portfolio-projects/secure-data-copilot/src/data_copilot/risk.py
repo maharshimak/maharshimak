@@ -46,7 +46,7 @@ def enforce_query_budget(
     max_rows: int = 200,
 ) -> tuple[str, QueryRisk]:
     if isinstance(max_risk_score, bool) or not isinstance(max_risk_score, int):
-        raise ValueError("max_risk_score must be an integer")
+        raise TypeError("max_risk_score must be an integer")
     if not 0 <= max_risk_score <= 100:
         raise ValueError("max_risk_score must be between 0 and 100")
 

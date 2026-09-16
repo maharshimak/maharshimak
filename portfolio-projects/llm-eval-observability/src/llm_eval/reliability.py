@@ -19,10 +19,13 @@ class ConfidenceGateResult:
 
 
 def wilson_interval(successes: int, total: int, *, z: float = 1.96) -> ConfidenceInterval:
-    if isinstance(successes, bool) or isinstance(total, bool):
-        raise ValueError("successes and total must be integers")
-    if not isinstance(successes, int) or not isinstance(total, int):
-        raise ValueError("successes and total must be integers")
+    if (
+        isinstance(successes, bool)
+        or isinstance(total, bool)
+        or not isinstance(successes, int)
+        or not isinstance(total, int)
+    ):
+        raise TypeError("successes and total must be integers")
     if total <= 0 or not 0 <= successes <= total:
         raise ValueError("Require 0 <= successes <= total and total > 0")
     if not isfinite(z) or z <= 0:
