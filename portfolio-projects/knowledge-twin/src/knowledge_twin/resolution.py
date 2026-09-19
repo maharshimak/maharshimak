@@ -15,13 +15,22 @@ class ResolutionMatch:
     exact: bool
 
 
+_LEGAL_SUFFIXES = {
+    "corporation": "corp",
+    "company": "co",
+    "limited": "ltd",
+    "incorporated": "inc",
+}
+
+
 def normalize_entity_name(value: str) -> str:
     if not isinstance(value, str) or not value.strip():
         raise ValueError("entity name must be a non-empty string")
     decomposed = unicodedata.normalize("NFKD", value)
     ascii_text = "".join(char for char in decomposed if not unicodedata.combining(char))
     tokens = re.findall(r"[a-z0-9]+", ascii_text.casefold())
-    return " ".join(tokens)
+    canonical = [_LEGAL_SUFFIXES.get(token, token) for token in tokens]
+    return " ".join(canonical)
 
 
 def _token_jaccard(left: str, right: str) -> float:
