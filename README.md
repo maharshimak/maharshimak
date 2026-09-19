@@ -2,10 +2,10 @@
 
 <div align="center">
 
-<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=230&section=header&text=Maharshi%20Patel&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Engineer%20%E2%80%A2%20GenAI%20%E2%80%A2%20LLM%2FRAG%20%E2%80%A2%20AI%20Agents%20%E2%80%A2%20MLOps&descSize=18&descAlignY=60" />
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=230&section=header&text=Maharshi%20Patel&fontSize=58&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=AI%20Engineer%20%E2%80%A2%20Agentic%20AI%20%E2%80%A2%20RAG%20%E2%80%A2%20LLM%20Systems%20%E2%80%A2%20MLOps&descSize=18&descAlignY=60" />
 
 <a href="https://readme-typing-svg.demolab.com">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=900&color=00E7FF&center=true&vCenter=true&width=900&lines=Building+AI+systems+that+reason%2C+retrieve+%26+act;Generative+AI+%7C+Agentic+RAG+%7C+AI+Agents;Machine+Learning+%7C+Data+Engineering+%7C+MLOps;From+intelligent+prototypes+to+reliable+AI+systems" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=900&color=00E7FF&center=true&vCenter=true&width=900&lines=Engineering+AI+systems+that+retrieve%2C+reason+%26+act;Agentic+AI+%7C+RAG+%7C+LLM+Systems;Machine+Learning+%7C+Data+Engineering+%7C+MLOps;From+prototype+to+reliable%2C+inspectable+AI" alt="Typing SVG" />
 </a>
 
 <br/>
@@ -25,7 +25,7 @@
 
 <img src="https://img.shields.io/badge/Paris%2C%20France-111827?style=flat-square&logo=googlemaps&logoColor=00E7FF" />
 <img src="https://img.shields.io/badge/AWS%20Certified-ML%20Engineer-111827?style=flat-square&logo=amazonwebservices&logoColor=FF9900" />
-<img src="https://img.shields.io/badge/Open%20to-AI%20%26%20Data%20Opportunities-111827?style=flat-square&logo=sparkles&logoColor=00E7FF" />
+<img src="https://img.shields.io/badge/Open%20to-AI%20Engineering%20Opportunities-111827?style=flat-square&logo=sparkles&logoColor=00E7FF" />
 
 </div>
 
@@ -38,22 +38,20 @@ name: Maharshi Patel
 location: Paris, France
 role: AI Engineer
 focus:
-  - Generative AI
-  - LLM / RAG
-  - AI Agents
+  - Agentic AI
+  - LLM Systems / RAG
   - Machine Learning
-  - Data Engineering
   - MLOps
-  - NLP
-  - Knowledge Systems
+  - Knowledge & Document Intelligence
+  - Data Engineering
 education: AI & Data Science for Business @ aivancity
 certification: AWS Certified Machine Learning Engineer – Associate
-mission: Build AI systems that move from prediction → generation → reasoning → action
+mission: Engineer AI systems that retrieve → reason → evaluate → act
 ```
 
-I design and build **AI systems that connect models with real data, retrieval, tools, APIs, workflows, evaluation and deployment**.
+I build **production-oriented AI systems that connect models with retrieval, memory, tools, APIs, evaluation and deployment infrastructure**.
 
-My work spans **Generative AI, RAG, agentic systems, machine learning, NLP, knowledge graphs, document intelligence and MLOps**, with a strong focus on inspectable behavior, useful tests and safe engineering boundaries.
+My work focuses on **Agentic AI, RAG/LLM systems, machine learning, knowledge and document intelligence, and MLOps** — with an emphasis on **inspectability, reproducibility, testing, reliability and explicit safety boundaries**.
 
 ---
 
@@ -126,23 +124,23 @@ Full-stack intelligent applications with **modern interfaces, APIs, data infrast
 
 <div align="center">
 
-### A personal AI runtime exploring memory, tool use, local models, workflow orchestration and safe action execution.
+### A personal agentic runtime for memory, model routing, permissioned tools, traceable execution and local-first AI workflows.
 
-`Agents` • `Memory` • `Tool Use` • `FastAPI` • `Local LLMs` • `Automation`
+`Agent Runtime` • `Memory` • `Tool Use` • `FastAPI` • `Local LLMs` • `Observability`
 
 </div>
 
 [**Explore Mak'ma AI OS →**](https://github.com/maharshimak/makma-ai-os)
 
-Implemented today includes **persistent SQLite memory, provider routing for local/Ollama/OpenAI-compatible servers, deterministic and auditable planning, permissioned tools, run history, tool traces, SSE streaming, FastAPI APIs and Docker persistence**.
+Currently implemented: **persistent SQLite memory, local/Ollama/OpenAI-compatible provider routing, deterministic auditable planning, permissioned tools, run history, tool traces, FastAPI APIs, an SSE response stream and Docker persistence**.
 
-The longer-term direction is a broader personal intelligence layer with richer multimodal, voice and computer-interaction capabilities while keeping actions explicit, permissioned and inspectable.
+The roadmap extends this into a broader personal intelligence layer with semantic memory, richer planning, multimodal/voice interfaces and sandboxed computer interaction — while keeping actions **explicit, permissioned and inspectable**.
 
 ---
 
-## 🚀 Featured Engineering Portfolio
+## 🚀 Core Engineering Systems
 
-Each project below now lives in its **own standalone repository** with independent CI covering install, dependency integrity, linting, tests, wheel packaging and Docker builds.
+The portfolio is organized as a set of **standalone, testable AI systems** rather than isolated demos. Each repository has its own engineering lifecycle and CI covering installation, linting, tests, packaging and container validation.
 
 ### Engineering Portfolio Status
 
@@ -158,7 +156,7 @@ Each project below now lives in its **own standalone repository** with independe
 | [MLOps Control Plane](https://github.com/maharshimak/mlops-control-plane) | Registry, governance, drift, rollback decisions | [![CI](https://github.com/maharshimak/mlops-control-plane/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/mlops-control-plane/actions/workflows/ci.yml) |
 | [MLOps Production Pipeline](https://github.com/maharshimak/mlops-production-pipeline) | Reproducible training, gates, artifact integrity | [![CI](https://github.com/maharshimak/mlops-production-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/mlops-production-pipeline/actions/workflows/ci.yml) |
 
-Every standalone repository now follows the same engineering baseline: **CODEOWNERS, structured issues and pull requests, weekly Dependabot updates, changelog discipline, explicit engineering standards, Ruff, regression tests, wheel builds and Docker validation**.
+Across the portfolio, the engineering baseline includes **CODEOWNERS, structured issue/PR workflows, Dependabot, changelog discipline, Ruff, regression tests, wheel builds and Docker validation**.
 
 <div align="center">
 
@@ -215,7 +213,7 @@ Document intelligence pipeline for **extracting, normalizing and validating stru
 
 ## 🧪 Production AI & Reliability Labs
 
-These production-oriented projects also run **standalone repository CI**, so the code, tests, packaging and containers are validated independently of this profile repository.
+Supporting systems focused on **evaluation, safety, observability, governance and reproducible ML operations**, each validated independently in its own repository.
 
 <div align="center">
 
@@ -265,6 +263,14 @@ Reproducible ML lifecycle building blocks for **training, held-out evaluation, m
 </td>
 </tr>
 </table>
+
+---
+
+## 🧭 Engineering Principles
+
+**Inspectable over opaque** · **Measured over assumed** · **Reproducible over impressive-looking** · **Permissioned over unrestricted**
+
+I prefer systems where retrieval, planning, tool use, evaluation and failure modes can be **tested, traced and improved independently**.
 
 ---
 
@@ -337,7 +343,7 @@ A public snapshot of contribution activity and repository language mix — usefu
 
 ---
 
-## 💡 Current Research / Engineering Interests
+## 💡 Current Engineering / Research Interests
 
 <div align="center">
 
