@@ -132,7 +132,7 @@ Full-stack intelligent applications with **modern interfaces, APIs, data infrast
 
 [**Explore Mak'ma AI OS →**](https://github.com/maharshimak/makma-ai-os)
 
-Currently implemented: **persistent SQLite memory, local/Ollama/OpenAI-compatible provider routing, deterministic auditable planning, permissioned tools, run history, tool traces, FastAPI APIs, an SSE response stream and Docker persistence**.
+Currently implemented: **persistent SQLite memory with relevance-ranked recall, local/Ollama/OpenAI-compatible provider routing, ordered multi-intent auditable planning, permissioned tools, run history, execution metrics, bounded runtime telemetry, FastAPI APIs, an SSE response stream and Docker persistence**.
 
 The roadmap extends this into a broader personal intelligence layer with semantic memory, richer planning, multimodal/voice interfaces and sandboxed computer interaction — while keeping actions **explicit, permissioned and inspectable**.
 
