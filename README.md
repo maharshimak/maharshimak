@@ -144,6 +144,22 @@ The longer-term direction is a broader personal intelligence layer with richer m
 
 Each project below now lives in its **own standalone repository** with independent CI covering install, dependency integrity, linting, tests, wheel packaging and Docker builds.
 
+### Engineering Portfolio Status
+
+| System | Focus | CI |
+| --- | --- | --- |
+| [Mak'ma AI OS](https://github.com/maharshimak/makma-ai-os) | Agent runtime, memory, permissioned tools, telemetry | [![CI](https://github.com/maharshimak/makma-ai-os/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/makma-ai-os/actions/workflows/ci.yml) |
+| [Agentic RAG Engine](https://github.com/maharshimak/agentic-rag-engine) | Retrieval, fusion, reranking, caching, evaluation | [![CI](https://github.com/maharshimak/agentic-rag-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/agentic-rag-engine/actions/workflows/ci.yml) |
+| [Multimodal AI Studio](https://github.com/maharshimak/multimodal-ai-studio) | Structured media planning and render-budget controls | [![CI](https://github.com/maharshimak/multimodal-ai-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/multimodal-ai-studio/actions/workflows/ci.yml) |
+| [Knowledge Twin](https://github.com/maharshimak/knowledge-twin) | Evidence graphs, retrieval, entity resolution | [![CI](https://github.com/maharshimak/knowledge-twin/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/knowledge-twin/actions/workflows/ci.yml) |
+| [Clinical Document Intelligence](https://github.com/maharshimak/clinical-document-intelligence) | Structured extraction, provenance, validation | [![CI](https://github.com/maharshimak/clinical-document-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/clinical-document-intelligence/actions/workflows/ci.yml) |
+| [Secure Data Copilot](https://github.com/maharshimak/secure-data-copilot) | Read-only analytics, SQL safety, privacy/risk controls | [![CI](https://github.com/maharshimak/secure-data-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/secure-data-copilot/actions/workflows/ci.yml) |
+| [LLM Eval & Observability](https://github.com/maharshimak/llm-eval-observability) | Evaluation, confidence gates, SLOs, regressions | [![CI](https://github.com/maharshimak/llm-eval-observability/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/llm-eval-observability/actions/workflows/ci.yml) |
+| [MLOps Control Plane](https://github.com/maharshimak/mlops-control-plane) | Registry, governance, drift, rollback decisions | [![CI](https://github.com/maharshimak/mlops-control-plane/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/mlops-control-plane/actions/workflows/ci.yml) |
+| [MLOps Production Pipeline](https://github.com/maharshimak/mlops-production-pipeline) | Reproducible training, gates, artifact integrity | [![CI](https://github.com/maharshimak/mlops-production-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/mlops-production-pipeline/actions/workflows/ci.yml) |
+
+Every standalone repository now follows the same engineering baseline: **CODEOWNERS, structured issues and pull requests, weekly Dependabot updates, changelog discipline, explicit engineering standards, Ruff, regression tests, wheel builds and Docker validation**.
+
 <div align="center">
 
 [![Portfolio CI](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/portfolio-ci.yml)
