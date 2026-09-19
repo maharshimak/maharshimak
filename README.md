@@ -130,7 +130,7 @@ Full-stack intelligent applications with **modern interfaces, APIs, data infrast
 
 </div>
 
-[**Explore Mak'ma AI OS →**](https://github.com/maharshimak/makma-ai-os)
+[Live Runtime Console](https://maharshimak.github.io/makma-ai-os/) · [Source Repository](https://github.com/maharshimak/makma-ai-os)
 
 Currently implemented: **persistent SQLite memory with relevance-ranked recall, local/Ollama/OpenAI-compatible provider routing, ordered multi-intent auditable planning, permissioned tools, run history, execution metrics, bounded runtime telemetry, FastAPI APIs, an SSE response stream and Docker persistence**.
 
