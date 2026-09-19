@@ -65,8 +65,9 @@ class RollbackDecision:
 
 def decide_rollback(
     telemetry: DeploymentTelemetry,
-    policy: RollbackPolicy = RollbackPolicy(),
+    policy: RollbackPolicy | None = None,
 ) -> RollbackDecision:
+    policy = policy or RollbackPolicy()
     error_rate = telemetry.errors / telemetry.requests
     latency_ratio = telemetry.p95_latency_ms / telemetry.baseline_p95_latency_ms
     reasons: list[str] = []
