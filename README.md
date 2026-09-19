@@ -132,7 +132,7 @@ Full-stack intelligent applications with **modern interfaces, APIs, data infrast
 
 </div>
 
-[**Explore Mak'ma AI OS →**](./portfolio-projects/makma-ai-os/)
+[**Explore Mak'ma AI OS →**](https://github.com/maharshimak/makma-ai-os)
 
 Implemented today includes **persistent SQLite memory, provider routing for local/Ollama/OpenAI-compatible servers, deterministic and auditable planning, permissioned tools, run history, tool traces, SSE streaming, FastAPI APIs and Docker persistence**.
 
@@ -141,6 +141,8 @@ The longer-term direction is a broader personal intelligence layer with richer m
 ---
 
 ## 🚀 Featured Engineering Portfolio
+
+Each project below now lives in its **own standalone repository** with independent CI covering install, dependency integrity, linting, tests, wheel packaging and Docker builds.
 
 <div align="center">
 
@@ -152,7 +154,7 @@ The longer-term direction is a broader personal intelligence layer with richer m
 <tr>
 <td width="50%" valign="top">
 
-### 🧠 [Agentic RAG Engine](./portfolio-projects/agentic-rag-engine/)
+### 🧠 [Agentic RAG Engine](https://github.com/maharshimak/agentic-rag-engine)
 
 Inspectable RAG architecture with **document ingestion, chunking, lexical + semantic-style retrieval, reciprocal-rank fusion, reranking, citation-aware context construction and evaluation**.
 
@@ -161,7 +163,7 @@ Inspectable RAG architecture with **document ingestion, chunking, lexical + sema
 </td>
 <td width="50%" valign="top">
 
-### 🎬 [Multimodal AI Studio](./portfolio-projects/multimodal-ai-studio/)
+### 🎬 [Multimodal AI Studio](https://github.com/maharshimak/multimodal-ai-studio)
 
 AI-assisted media editing architecture that translates **natural-language editing intent into structured, validated photo/video operation graphs**, forming an orchestration layer for larger multimodal creative workflows.
 
@@ -172,7 +174,7 @@ AI-assisted media editing architecture that translates **natural-language editin
 <tr>
 <td width="50%" valign="top">
 
-### 🌐 [Knowledge Twin](./portfolio-projects/knowledge-twin/)
+### 🌐 [Knowledge Twin](https://github.com/maharshimak/knowledge-twin)
 
 Knowledge intelligence system for **entities, relationships, evidence-bearing edges, graph traversal and semantic-style retrieval across structured information**.
 
@@ -181,7 +183,7 @@ Knowledge intelligence system for **entities, relationships, evidence-bearing ed
 </td>
 <td width="50%" valign="top">
 
-### 🧬 [Clinical Document Intelligence](./portfolio-projects/clinical-document-intelligence/)
+### 🧬 [Clinical Document Intelligence](https://github.com/maharshimak/clinical-document-intelligence)
 
 Document intelligence pipeline for **extracting, normalizing and validating structured information from synthetic clinical-style documents**, designed around safe public portfolio data.
 
@@ -197,6 +199,8 @@ Document intelligence pipeline for **extracting, normalizing and validating stru
 
 ## 🧪 Production AI & Reliability Labs
 
+These production-oriented projects also run **standalone repository CI**, so the code, tests, packaging and containers are validated independently of this profile repository.
+
 <div align="center">
 
 [![Production AI Labs CI](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml)
@@ -207,7 +211,7 @@ Document intelligence pipeline for **extracting, normalizing and validating stru
 <tr>
 <td width="50%" valign="top">
 
-### 🔐 [Secure Data Copilot](./portfolio-projects/secure-data-copilot/)
+### 🔐 [Secure Data Copilot](https://github.com/maharshimak/secure-data-copilot)
 
 Security-focused analytics copilot with **schema awareness, read-only SQL policy enforcement, bounded execution, auditing and safe result summarization**.
 
@@ -216,7 +220,7 @@ Security-focused analytics copilot with **schema awareness, read-only SQL policy
 </td>
 <td width="50%" valign="top">
 
-### 🔭 [LLM Eval & Observability](./portfolio-projects/llm-eval-observability/)
+### 🔭 [LLM Eval & Observability](https://github.com/maharshimak/llm-eval-observability)
 
 Evaluation toolkit for **relevance, citation coverage, forbidden-output checks, latency, cost, experiment comparison, regression testing and release gates**.
 
@@ -227,7 +231,7 @@ Evaluation toolkit for **relevance, citation coverage, forbidden-output checks, 
 <tr>
 <td width="50%" valign="top">
 
-### ⚙️ [MLOps Control Plane](./portfolio-projects/mlops-control-plane/)
+### ⚙️ [MLOps Control Plane](https://github.com/maharshimak/mlops-control-plane)
 
 Model lifecycle control with **registry concepts, dataset fingerprints, evaluation gates, candidate/production states, promotion controls, drift detection and governance**.
 
@@ -236,7 +240,7 @@ Model lifecycle control with **registry concepts, dataset fingerprints, evaluati
 </td>
 <td width="50%" valign="top">
 
-### 🔁 [MLOps Production Pipeline](./portfolio-projects/mlops-production-pipeline/)
+### 🔁 [MLOps Production Pipeline](https://github.com/maharshimak/mlops-production-pipeline)
 
 Reproducible ML lifecycle building blocks for **training, held-out evaluation, model metadata, quality gates, drift monitoring and CI-driven validation**.
 
