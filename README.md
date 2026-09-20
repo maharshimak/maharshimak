@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/Portfolio-00E7FF?style=for-the-badge&logo=vercel&logoColor=000000" />
 </a>
 <a href="https://maharshimak.github.io/makma-ai-os/projects/">
-  <img src="https://img.shields.io/badge/Explore%20Live%20AI%20Systems-D9FF63?style=for-the-badge&logo=github&logoColor=111408" />
+  <img src="https://img.shields.io/badge/MAK'MA%20Labs-D9FF63?style=for-the-badge&logo=github&logoColor=111408" />
 </a>
 <a href="https://www.linkedin.com/in/maharshi-patel-6bb638298/">
   <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
@@ -31,6 +31,8 @@
 <img src="https://img.shields.io/badge/Open%20to-AI%20Engineering%20Opportunities-111827?style=flat-square&logo=sparkles&logoColor=00E7FF" />
 
 <br/><br/>
+
+**MAK'MA Labs** — AI products and engineering systems built by **MAK'MA Studio**.
 
 **Seeking a 24-month AI / Data / ML alternance in France — September/October 2026 · Rhythm: 1 week school / 3 weeks company.**
 
