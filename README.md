@@ -13,6 +13,9 @@
 <a href="https://maharshipatel-portfolio.vercel.app/">
   <img src="https://img.shields.io/badge/Portfolio-00E7FF?style=for-the-badge&logo=vercel&logoColor=000000" />
 </a>
+<a href="https://maharshimak.github.io/makma-ai-os/projects/">
+  <img src="https://img.shields.io/badge/Explore%20Live%20AI%20Systems-D9FF63?style=for-the-badge&logo=github&logoColor=111408" />
+</a>
 <a href="https://www.linkedin.com/in/maharshi-patel-6bb638298/">
   <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" />
 </a>
