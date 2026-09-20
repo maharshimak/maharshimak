@@ -27,6 +27,10 @@
 <img src="https://img.shields.io/badge/AWS%20Certified-ML%20Engineer-111827?style=flat-square&logo=amazonwebservices&logoColor=FF9900" />
 <img src="https://img.shields.io/badge/Open%20to-AI%20Engineering%20Opportunities-111827?style=flat-square&logo=sparkles&logoColor=00E7FF" />
 
+<br/><br/>
+
+**Seeking a 24-month AI / Data / ML alternance in France — September/October 2026 · Rhythm: 1 week school / 3 weeks company.**
+
 </div>
 
 ---
