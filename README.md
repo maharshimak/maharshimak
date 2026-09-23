@@ -143,7 +143,7 @@ Full-stack intelligent applications with **modern interfaces, APIs, data infrast
 
 Currently implemented: **persistent SQLite memory with relevance-ranked recall, local/Ollama/OpenAI-compatible provider routing, ordered auditable planning, typed permissioned tools, durable success/failure run history, execution metrics, bounded runtime telemetry, native OpenAI/Ollama provider streaming, a local-first bearer-token API boundary and Docker persistence**.
 
-The roadmap extends this into a broader personal intelligence layer with semantic memory, richer planning, multimodal/voice interfaces and sandboxed computer interaction — while keeping actions **explicit, permissioned and inspectable**.
+The roadmap extends this into a broader personal intelligence layer with richer semantic memory backends, more satellite/tool integrations, multimodal/voice interfaces and sandboxed computer interaction — while keeping actions **explicit, permissioned and inspectable**.
 
 ---
 
@@ -188,7 +188,7 @@ Inspectable RAG architecture with **document chunking, lexical + configurable ve
 
 ### 🎬 [Multimodal AI Studio](https://github.com/maharshimak/multimodal-ai-studio)
 
-Media workflow architecture that translates **natural-language editing intent into validated operation graphs**, inspects local media with ffprobe and executes a bounded set of real retime, color-grade and denoise operations through shell-free FFmpeg commands.
+Media workflow architecture that translates **natural-language editing intent into validated operation graphs**, parses explicit trim/resize/crop/volume/speed instructions, inspects local media with ffprobe and executes a bounded set of real FFmpeg operations without shell invocation.
 
 `Multimodal AI` `Media AI` `Planning` `Computer Vision`
 
@@ -236,7 +236,7 @@ Supporting systems focused on **evaluation, safety, observability, governance an
 
 ### 🔐 [Secure Data Copilot](https://github.com/maharshimak/secure-data-copilot)
 
-Security-focused analytics copilot with **schema awareness, parsed SQL AST enforcement, native read-only SQLite, bounded execution, auditing and safe result summarization**.
+Security-focused analytics copilot with **schema-aware deterministic or configured model-backed planning, parsed SQL AST enforcement, native read-only SQLite, bounded execution, auditing and safe result summarization**.
 
 `Data Agents` `SQL Safety` `FastAPI` `Analytics`
 
