@@ -2,51 +2,49 @@
 
 ## Scope
 
-This policy applies to the profile repository and the public portfolio projects currently stored under `portfolio-projects/`.
+This policy applies to this GitHub profile/portfolio manifest. Each linked MAK'MA project
+is maintained in its own canonical standalone repository and carries its own
+`SECURITY.md`, CI and dependency configuration.
 
-Only the current `main` branch is considered supported. Historical commits may contain superseded implementations and should not be treated as maintained releases.
+Only current `main` branches are considered supported. Historical commits may contain
+superseded implementations and should not be treated as maintained releases.
 
 ## Reporting a vulnerability
 
-Please do **not** publish exploitable security details, credentials, private data or working attack payloads in a public issue.
+Do **not** publish exploitable security details, credentials, private data or working
+attack payloads in a public issue.
 
-For responsible disclosure, contact the repository owner privately at `pmaharshi999@gmail.com` with a clear subject such as `Security report: <project>`. Include the affected project, impact, reproduction steps and any suggested mitigation. Remove unrelated secrets or personal data from logs and screenshots before sending them.
+For responsible disclosure, contact the repository owner privately at
+`pmaharshi999@gmail.com` with a clear subject such as `Security report: <project>`.
+Include the affected repository, impact, reproduction steps and suggested mitigation.
+Remove unrelated secrets or personal data from logs and screenshots.
 
 ## Secrets and sensitive data
 
-Never commit API keys, passwords, OAuth tokens, private keys, production credentials, database files containing private data or private user information.
-
-Use environment variables and `.env.example` files with placeholder values only. Local database, key and credential-like artifacts are ignored at repository level.
+Never commit API keys, passwords, OAuth tokens, private keys, production credentials,
+private databases or private user information. Use environment variables and example
+configuration containing placeholders only.
 
 If a real credential is accidentally committed:
 
 1. revoke or rotate it immediately;
 2. remove it from the current tree;
-3. inspect Git history and rewrite affected history where necessary;
-4. re-run the repository security audit before considering the incident closed.
+3. inspect reachable Git history and rewrite affected history where necessary;
+4. re-run the relevant repository security checks.
 
 ## Automated safeguards
 
-The repository uses a **Security History Audit** GitHub Actions workflow that checks every reachable Git blob for common credential patterns and sensitive filenames. The workflow runs on pull requests, pushes to `main`, a weekly schedule and manual dispatch.
-
-The scanner is designed not to print matched secret values. A match fails the workflow and reports only the pattern category, blob and path requiring review.
-
-Project CI also validates linting, tests, package builds and container builds where configured.
+The profile repository runs its security history audit over reachable Git blobs and a
+profile-contract workflow over canonical repository links. Each standalone MAK'MA
+repository independently gates its implementation with linting, tests, package builds and
+container/browser checks where applicable.
 
 ## AI and tool safety
 
-Projects that introduce agents, tools, SQL execution, model promotion or external actions should document and test:
+Projects that introduce agents, tools, SQL execution, model promotion or external actions
+should document and test what can be read or modified, approval requirements, validation,
+auditability, credential scope and limits that prevent unbounded or destructive execution.
 
-- what the component can read;
-- what it can modify;
-- whether explicit user approval is required;
-- how inputs and outputs are validated;
-- how actions are logged or audited;
-- how credentials and permissions are scoped;
-- what limits prevent unbounded or destructive execution.
-
-Security controls should not be weakened merely to simplify a demo.
-
-## Portfolio data policy
-
-Public examples should use synthetic, generated or otherwise public-safe data. Employer-confidential code, proprietary datasets, real patient data and private internal architecture do not belong in this repository.
+Public examples should use synthetic, generated or otherwise public-safe data. Employer
+confidential code, proprietary datasets and private internal architecture do not belong in
+the profile or project repositories.
