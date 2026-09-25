@@ -32,8 +32,8 @@ jobs:
           import importlib.util
           from pathlib import Path
 
-          script = Path("scripts/split-portfolio-repos.py")
-          spec = importlib.util.spec_from_file_location("portfolio_split_audit", script)
+          script = Path("scripts/security_history_audit.py")
+          spec = importlib.util.spec_from_file_location("security_history_audit", script)
           if spec is None or spec.loader is None:
               raise RuntimeError("Unable to load repository audit implementation")
           module = importlib.util.module_from_spec(spec)
@@ -51,8 +51,8 @@ jobs:
           import tempfile
           from pathlib import Path
 
-          script = Path("scripts/split-portfolio-repos.py")
-          spec = importlib.util.spec_from_file_location("portfolio_split_audit", script)
+          script = Path("scripts/security_history_audit.py")
+          spec = importlib.util.spec_from_file_location("security_history_audit", script)
           if spec is None or spec.loader is None:
               raise RuntimeError("Unable to load repository audit implementation")
           module = importlib.util.module_from_spec(spec)
