@@ -141,7 +141,7 @@ Full-stack intelligent applications with **modern interfaces, APIs, data infrast
 
 [Live Runtime Console](https://maharshimak.github.io/makma-ai-os/) · [Source Repository](https://github.com/maharshimak/makma-ai-os)
 
-Currently implemented: **persistent SQLite memory with relevance-ranked recall, local/Ollama/OpenAI-compatible provider routing, ordered auditable planning, typed permissioned tools, durable success/failure run history, execution metrics, bounded runtime telemetry, native OpenAI/Ollama provider streaming, a local-first bearer-token API boundary and Docker persistence**.
+Currently implemented: **persistent SQLite memory with hybrid recall, local/Ollama/OpenAI-compatible provider routing, deterministic or model-backed planning, typed permissioned tools, durable DAG workflows with pause/resume approval checkpoints, RAG/Data/Eval/MLOps service integrations, durable run/tool audit history, execution metrics, optional OpenTelemetry export, native provider streaming, bearer-protected remote access and Docker persistence**.
 
 The roadmap extends this into a broader personal intelligence layer with richer semantic memory backends, more satellite/tool integrations, multimodal/voice interfaces and sandboxed computer interaction — while keeping actions **explicit, permissioned and inspectable**.
 
@@ -155,15 +155,15 @@ The portfolio is organized as a set of **standalone, testable AI systems** rathe
 
 | System | Focus | CI |
 | --- | --- | --- |
-| [Mak'ma AI OS](https://github.com/maharshimak/makma-ai-os) | Agent runtime, memory, permissioned tools, telemetry | [![CI](https://github.com/maharshimak/makma-ai-os/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/makma-ai-os/actions/workflows/ci.yml) |
-| [Agentic RAG Engine](https://github.com/maharshimak/agentic-rag-engine) | Hybrid retrieval, fusion, reranking, durable source storage, evaluation | [![CI](https://github.com/maharshimak/agentic-rag-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/agentic-rag-engine/actions/workflows/ci.yml) |
-| [Multimodal AI Studio](https://github.com/maharshimak/multimodal-ai-studio) | Structured media planning, ffprobe inspection, bounded FFmpeg execution | [![CI](https://github.com/maharshimak/multimodal-ai-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/multimodal-ai-studio/actions/workflows/ci.yml) |
-| [Knowledge Twin](https://github.com/maharshimak/knowledge-twin) | Evidence graphs, directed retrieval and SQLite persistence | [![CI](https://github.com/maharshimak/knowledge-twin/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/knowledge-twin/actions/workflows/ci.yml) |
-| [Clinical Document Intelligence](https://github.com/maharshimak/clinical-document-intelligence) | Labeled extraction, evidence spans, provenance, validation | [![CI](https://github.com/maharshimak/clinical-document-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/clinical-document-intelligence/actions/workflows/ci.yml) |
-| [Secure Data Copilot](https://github.com/maharshimak/secure-data-copilot) | Read-only analytics, parsed SQL AST safety, bounded SQLite execution | [![CI](https://github.com/maharshimak/secure-data-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/secure-data-copilot/actions/workflows/ci.yml) |
-| [LLM Eval & Observability](https://github.com/maharshimak/llm-eval-observability) | Evaluation, live provider runs, latency/usage metrics, regressions | [![CI](https://github.com/maharshimak/llm-eval-observability/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/llm-eval-observability/actions/workflows/ci.yml) |
-| [MLOps Control Plane](https://github.com/maharshimak/mlops-control-plane) | Durable registry, evaluation gates, drift and lifecycle governance | [![CI](https://github.com/maharshimak/mlops-control-plane/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/mlops-control-plane/actions/workflows/ci.yml) |
-| [MLOps Production Pipeline](https://github.com/maharshimak/mlops-production-pipeline) | Seeded training/eval, fingerprints, gates and artifact integrity | [![CI](https://github.com/maharshimak/mlops-production-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/mlops-production-pipeline/actions/workflows/ci.yml) |
+| [Mak'ma AI OS](https://github.com/maharshimak/makma-ai-os) | Durable agent workflows, memory, permissioned tools, service orchestration, OTLP telemetry | [![CI](https://github.com/maharshimak/makma-ai-os/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/makma-ai-os/actions/workflows/ci.yml) |
+| [Agentic RAG Engine](https://github.com/maharshimak/agentic-rag-engine) | Hybrid retrieval, model query decomposition, fusion, MMR/learned reranking, evaluation | [![CI](https://github.com/maharshimak/agentic-rag-engine/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/agentic-rag-engine/actions/workflows/ci.yml) |
+| [Multimodal AI Studio](https://github.com/maharshimak/multimodal-ai-studio) | FFmpeg automation plus optional Whisper transcription and Diffusers image generation | [![CI](https://github.com/maharshimak/multimodal-ai-studio/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/multimodal-ai-studio/actions/workflows/ci.yml) |
+| [Knowledge Twin](https://github.com/maharshimak/knowledge-twin) | Evidence-grounded graph extraction, resolution, communities, traversal and persistence | [![CI](https://github.com/maharshimak/knowledge-twin/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/knowledge-twin/actions/workflows/ci.yml) |
+| [Clinical Document Intelligence](https://github.com/maharshimak/clinical-document-intelligence) | Evidence-grounded structured extraction plus optional Docling document understanding | [![CI](https://github.com/maharshimak/clinical-document-intelligence/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/clinical-document-intelligence/actions/workflows/ci.yml) |
+| [Secure Data Copilot](https://github.com/maharshimak/secure-data-copilot) | Read-only analytics, SQL AST sandbox, table/column access policy, bounded execution | [![CI](https://github.com/maharshimak/secure-data-copilot/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/secure-data-copilot/actions/workflows/ci.yml) |
+| [LLM Eval & Observability](https://github.com/maharshimak/llm-eval-observability) | Deterministic + semantic judging, live runs, datasets, SLO/reliability and regression gates | [![CI](https://github.com/maharshimak/llm-eval-observability/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/llm-eval-observability/actions/workflows/ci.yml) |
+| [MLOps Control Plane](https://github.com/maharshimak/mlops-control-plane) | Strict lifecycle state machine, registry, drift/canary/rollback and deployment boundary | [![CI](https://github.com/maharshimak/mlops-control-plane/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/mlops-control-plane/actions/workflows/ci.yml) |
+| [MLOps Production Pipeline](https://github.com/maharshimak/mlops-production-pipeline) | Reproducible training/eval, fingerprints, gates, artifact integrity and run ledger | [![CI](https://github.com/maharshimak/mlops-production-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/maharshimak/mlops-production-pipeline/actions/workflows/ci.yml) |
 
 Across the portfolio, the engineering baseline includes **CODEOWNERS, structured issue/PR workflows, Dependabot, changelog discipline, Ruff, regression tests, wheel builds and Docker validation**.
 
@@ -179,7 +179,7 @@ Across the portfolio, the engineering baseline includes **CODEOWNERS, structured
 
 ### 🧠 [Agentic RAG Engine](https://github.com/maharshimak/agentic-rag-engine)
 
-Inspectable RAG architecture with **document chunking, lexical + configurable vector retrieval, reciprocal-rank fusion, reranking, citation-aware context construction, evaluation and optional durable SQLite source-document storage**.
+Inspectable RAG architecture with **document chunking, BM25 + configurable vector retrieval, structured model-backed query decomposition, reciprocal-rank fusion, MMR diversity selection, optional learned cross-encoder reranking, citation-aware context construction, evaluation and durable source storage**.
 
 `RAG` `Hybrid Search` `Retrieval` `Evaluation`
 
@@ -188,7 +188,7 @@ Inspectable RAG architecture with **document chunking, lexical + configurable ve
 
 ### 🎬 [Multimodal AI Studio](https://github.com/maharshimak/multimodal-ai-studio)
 
-Media workflow architecture that translates **natural-language editing intent into validated operation graphs**, parses explicit trim/resize/crop/volume/speed instructions, inspects local media with ffprobe and executes a bounded set of real FFmpeg operations without shell invocation.
+Media workflow architecture that translates **editing intent into validated operation graphs**, inspects local media with ffprobe, executes bounded shell-free FFmpeg operations, and exposes optional real `faster-whisper` transcription/SRT and Hugging Face Diffusers image-generation backends.
 
 `Multimodal AI` `Media AI` `Planning` `Computer Vision`
 
@@ -199,7 +199,7 @@ Media workflow architecture that translates **natural-language editing intent in
 
 ### 🌐 [Knowledge Twin](https://github.com/maharshimak/knowledge-twin)
 
-Knowledge intelligence system for **entities, evidence-bearing directed relationships, graph traversal, keyword retrieval and optional SQLite persistence across structured information**.
+Knowledge intelligence system for **evidence-bearing entities/relationships, model-backed text-to-graph extraction with verbatim evidence checks, entity resolution, directed traversal, optional Louvain community analytics and SQLite persistence**.
 
 `Knowledge Graphs` `Retrieval` `NLP` `Reasoning`
 
@@ -208,7 +208,7 @@ Knowledge intelligence system for **entities, evidence-bearing directed relation
 
 ### 🧬 [Clinical Document Intelligence](https://github.com/maharshimak/clinical-document-intelligence)
 
-Document intelligence pipeline for **extracting, normalizing and validating structured information from synthetic clinical-style documents**, designed around safe public portfolio data.
+Document intelligence pipeline for **deterministic and model-backed structured extraction with source evidence spans, provenance and validation**, plus optional Docling layout/OCR-aware ingestion for richer documents.
 
 `Document AI` `NLP` `Extraction` `Validation`
 
@@ -224,19 +224,13 @@ Document intelligence pipeline for **extracting, normalizing and validating stru
 
 Supporting systems focused on **evaluation, safety, observability, governance and reproducible ML operations**, each validated independently in its own repository.
 
-<div align="center">
-
-[![Production AI Labs CI](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml/badge.svg)](https://github.com/maharshimak/maharshimak/actions/workflows/production-ai-labs-ci.yml)
-
-</div>
-
 <table>
 <tr>
 <td width="50%" valign="top">
 
 ### 🔐 [Secure Data Copilot](https://github.com/maharshimak/secure-data-copilot)
 
-Security-focused analytics copilot with **schema-aware deterministic or configured model-backed planning, parsed SQL AST enforcement, native read-only SQLite, bounded execution, auditing and safe result summarization**.
+Security-focused analytics copilot with **schema-aware deterministic or model-backed planning, parsed SQL AST enforcement, native query-only SQLite, bounded execution, auditing, and independent table/column/row-scope authorization policies**.
 
 `Data Agents` `SQL Safety` `FastAPI` `Analytics`
 
@@ -245,7 +239,7 @@ Security-focused analytics copilot with **schema-aware deterministic or configur
 
 ### 🔭 [LLM Eval & Observability](https://github.com/maharshimak/llm-eval-observability)
 
-Evaluation toolkit for **relevance, citation coverage, forbidden-output checks, optional live OpenAI-compatible candidate execution, measured latency, token/cost accounting, experiment comparison and regression gates**.
+Evaluation toolkit combining **deterministic regression metrics with optional structured LLM-as-judge rubrics, live provider execution, measured latency/token/cost accounting, versioned datasets, Wilson reliability, SLOs and release regression gates**.
 
 `LLMOps` `Evaluation` `Observability` `Quality Gates`
 
@@ -256,7 +250,7 @@ Evaluation toolkit for **relevance, citation coverage, forbidden-output checks, 
 
 ### ⚙️ [MLOps Control Plane](https://github.com/maharshimak/mlops-control-plane)
 
-Model lifecycle control with a **durable SQLite registry, dataset fingerprints, evaluation gates, candidate/production states, promotion controls, drift detection and governance**.
+Model lifecycle control with a **durable SQLite registry, explicit one-way state transitions, evaluation gates, drift/canary/rollback logic, governance manifests and a typed HTTPS deployment-controller boundary**.
 
 `MLOps` `Model Registry` `Drift` `Governance`
 
@@ -265,7 +259,7 @@ Model lifecycle control with a **durable SQLite registry, dataset fingerprints, 
 
 ### 🔁 [MLOps Production Pipeline](https://github.com/maharshimak/mlops-production-pipeline)
 
-Reproducible ML lifecycle building blocks for **seeded train/evaluation splits, held-out metrics, data/config fingerprints, artifact manifests, quality/drift gates and CI-driven validation**.
+Reproducible ML lifecycle building blocks for **seeded train/evaluation splits, held-out metrics, data/config fingerprints, artifact manifests, quality/drift gates and a durable SQLite run ledger tying parameters, metrics and artifact digests to the actual training run**.
 
 `Training` `Testing` `Monitoring` `CI/CD`
 
