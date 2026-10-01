@@ -9,6 +9,14 @@ PATTERNS = {
     "GitHub token": rb"\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,})",
     "OpenAI key": rb"\bsk-(?:proj-|svcacct-)?[A-Za-z0-9_-]{25,}",
     "AWS access key": rb"\b(?:AKIA|ASIA)[A-Z0-9]{16}\b",
+    "Anthropic key": rb"\bsk-ant-[A-Za-z0-9_-]{20,}",
+    "Hugging Face token": rb"\bhf_[A-Za-z0-9]{30,}\b",
+    "Google API key": rb"\bAIza[0-9A-Za-z_-]{35}\b",
+    "Stripe live secret": rb"\bsk_live_[0-9A-Za-z]{16,}\b",
+    "Slack token": rb"\bxox[baprs]-[A-Za-z0-9-]{20,}\b",
+    "npm token": rb"\bnpm_[A-Za-z0-9]{30,}\b",
+    "GitLab token": rb"\bglpat-[A-Za-z0-9_-]{20,}\b",
+    "Groq key": rb"\bgsk_[A-Za-z0-9]{20,}\b",
     "credential URL": rb"https?://[^\s/:@]+:[^\s/@]+@",
     "assigned secret": (
         rb"(?im)(?:password|secret|api[_-]?key|token)\s*[=:]\s*"
