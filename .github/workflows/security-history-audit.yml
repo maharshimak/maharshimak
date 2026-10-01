@@ -6,7 +6,7 @@ on:
   pull_request:
   workflow_dispatch:
   schedule:
-    - cron: "17 5 * * 1"
+    - cron: "17 5 * * *"
 
 permissions:
   contents: read
@@ -85,3 +85,40 @@ jobs:
               else:
                   raise RuntimeError("Security scanner self-test failed to detect synthetic secret")
           PY
+
+      - name: Audit all public MAKMA repositories
+        shell: bash
+        run: |
+          set -euo pipefail
+          repos=(
+            makma-ai-os
+            agentic-rag-engine
+            multimodal-ai-studio
+            knowledge-twin
+            clinical-document-intelligence
+            secure-data-copilot
+            llm-eval-observability
+            mlops-control-plane
+            mlops-production-pipeline
+          )
+          root="$PWD"
+          for repo in "${repos[@]}"; do
+            target="/tmp/security-audit-$repo"
+            rm -rf "$target"
+            git clone --quiet "https://github.com/maharshimak/$repo.git" "$target"
+            REPO_PATH="$target" AUDIT_SCRIPT="$root/scripts/security_history_audit.py" python - <<'PY'
+          import importlib.util
+          import os
+          from pathlib import Path
+
+          script = Path(os.environ["AUDIT_SCRIPT"])
+          repo = Path(os.environ["REPO_PATH"])
+          spec = importlib.util.spec_from_file_location("security_history_audit", script)
+          if spec is None or spec.loader is None:
+              raise RuntimeError("Unable to load repository audit implementation")
+          module = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(module)
+          scanned = module.audit(repo)
+          print(f"{repo.name}: scanned {scanned} reachable blobs")
+          PY
+          done
