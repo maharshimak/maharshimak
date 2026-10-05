@@ -72,7 +72,7 @@ My work focuses on **Agentic AI, RAG/LLM systems, machine learning, knowledge an
 
 <br/><br/>
 
-<img src="https://img.shields.io/badge/LLMs-111827?style=for-the-badge&logo=openai&logoColor=00E7FF" />
+<img src="https://img.shields.io/badge/LLMs-111827?style=for-the-badge&logoColor=00E7FF" />
 <img src="https://img.shields.io/badge/RAG-111827?style=for-the-badge&logoColor=00E7FF" />
 <img src="https://img.shields.io/badge/AI%20Agents-111827?style=for-the-badge&logo=probot&logoColor=00E7FF" />
 <img src="https://img.shields.io/badge/Transformers-111827?style=for-the-badge&logo=huggingface&logoColor=FFD21E" />
@@ -141,7 +141,7 @@ Full-stack intelligent applications with **modern interfaces, APIs, data infrast
 
 [Live Runtime Console](https://maharshimak.github.io/makma-ai-os/) · [Source Repository](https://github.com/maharshimak/makma-ai-os)
 
-Currently implemented: **persistent SQLite memory with hybrid recall, local/Ollama/OpenAI-compatible provider routing, deterministic or model-backed planning, typed permissioned tools, durable DAG workflows with pause/resume approval checkpoints, RAG/Data/Eval/MLOps service integrations, durable run/tool audit history, execution metrics, optional OpenTelemetry export, native provider streaming, bearer-protected remote access and Docker persistence**.
+Currently implemented: **persistent SQLite memory with hybrid recall, local/Ollama/API-compatible provider routing, deterministic or model-backed planning, typed permissioned tools, durable DAG workflows with pause/resume approval checkpoints, RAG/Data/Eval/MLOps service integrations, durable run/tool audit history, execution metrics, optional OpenTelemetry export, native provider streaming, bearer-protected remote access and Docker persistence**.
 
 The roadmap extends this into a broader personal intelligence layer with richer semantic memory backends, more satellite/tool integrations, multimodal/voice interfaces and sandboxed computer interaction — while keeping actions **explicit, permissioned and inspectable**.
 
