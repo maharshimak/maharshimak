@@ -1,0 +1,10 @@
+title = "Repository Gitleaks configuration"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Known historical false positive: empty RAG_API_KEY placeholder in archived agentic RAG example"
+condition = "AND"
+commits = ["012528bcf2478b6beedf2e8487fc33e48b3e8644"]
+paths = ['''^portfolio-projects/agentic-rag-engine/\.env\.example$''']
