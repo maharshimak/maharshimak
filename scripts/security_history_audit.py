@@ -24,6 +24,16 @@ PATTERNS = {
     ),
 }
 
+# Exact immutable false positives only. Keep this narrow: matching any other
+# label/blob/path combination must still fail the audit.
+ALLOWLISTED_FINDINGS = {
+    (
+        "credential URL",
+        "e2f5d39824a251970c16008c5a303af9205386db",
+        "tests/test_deployments.py",
+    ): "Synthetic embedded-credentials rejection fixture in mlops-control-plane PR #11.",
+}
+
 
 def run(*args: str, cwd: Path | None = None) -> str:
     result = subprocess.run(
@@ -50,6 +60,9 @@ def audit(repo: Path) -> int:
         )
         for label, pattern in PATTERNS.items():
             if re.search(pattern, data):
+                finding = (label, sha, path)
+                if finding in ALLOWLISTED_FINDINGS:
+                    continue
                 raise RuntimeError(
                     f"Review required: {label}, blob {sha}, path {path}"
                 )
