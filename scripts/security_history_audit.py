@@ -32,6 +32,15 @@ ALLOWLISTED_FINDINGS = {
         "e2f5d39824a251970c16008c5a303af9205386db",
         "tests/test_deployments.py",
     ): "Synthetic embedded-credentials rejection fixture in mlops-control-plane PR #11.",
+    (
+        "assigned secret",
+        "1846bdcdab6d27e5c0dc4dcf8cfa0b8bf0d235e2",
+        "README.md",
+    ): (
+        "Historical secure-data-copilot README bash example assigning "
+        "a non-credential, human-readable 'your...' token placeholder. "
+        "This exception is restricted to this one immutable blob."
+    ),
 }
 
 
