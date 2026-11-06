@@ -30,9 +30,18 @@ Proposed owner-controlled release sequence, **not executed**:
 4. Only after a new explicit release authorization, dispatch the approved `main` Pages workflow, verify deployment SHA, then perform live E2E and visual/mobile/accessibility checks.
 5. Confirm which experience is actually visible at `/projects/`; separate cinematic draft PR #23 remains unmerged and should not be silently promoted.
 
+## Focused live-browser smoke (Nov 6)
+
+- **MAK'MA Labs Projects:** Index rendered all nine systems, agent filter and system search updated the visible grid, and the Agentic RAG Engine subpage rendered a live deterministic retrieval result and metrics. This is a focused happy-path check, not a mobile/accessibility/security audit or verification of all eight tools.
+- **Tech Portfolio:** In the audit browser, WebGL initialization was unavailable. The website correctly displayed a useful semantic text fallback with project links. However, selecting **FR** or **ગુ** toggled the selected language button without translating the fallback headings or descriptions: a reproducible localization defect in the non-WebGL experience. The banner remains in English as well.
+- **Original portfolio:** In the same browser with WebGL disabled, the application rendered only a night-mode toggle and a SCROLL label, with no discoverable profile or project content. Browser console reported repeated `THREE.WebGLRenderer` context-creation failures. This is an accessibility/resilience failure for browsers with unavailable or restricted WebGL, **not** evidence of failure on a GPU-enabled browser.
+- Extension-side metadata warnings also appeared in the audit environment; they are **not** attributed to the websites without independent confirmation.
+
+**Proposed fixes, not applied:** Make the original portfolio's semantic fallback independent of WebGL initialization, and localize the Tech Portfolio fallback (including headings, dynamic copy and status) using its language state. Test in WebGL-enabled and disabled browsers with EN/FR/ગુ and screen readers. Both portfolio source repositories are private; no source-file edits, draft PRs, or deployment changes were made there under the existing private-repository hold.
+
 ## Scope and limitations
 
-- HTTP HEAD/response-header smoke checks were executed; **no new full interactive cross-browser walkthrough** was performed in this audit.
+- HTTP HEAD/response-header checks and a focused live desktop browser smoke were executed; **no full multi-device or cross-browser walkthrough** was performed.
 - This report does not assert that every link, video, animation, localized string, or user journey is bug-free.
 - Vercel's older `makma-studio-site` project exists as a separate historical hosting record. It is **not** a release instruction for the user, who prefers GitHub Pages for Studio.
 - Do not publish or change the private portfolio or Studio repositories, branch protections, domains, environment variables, or deployment targets without separate owner approval.
