@@ -29,6 +29,46 @@ PATTERNS = {
 ALLOWLISTED_FINDINGS = {
     (
         "credential URL",
+        "ff0a3252c87a349bc6ed267391cc50df8db31e30",
+        "tests/test_specialists.py",
+    ): (
+        "Synthetic URL-embedded credentials in makma-ai-os's negative test "
+        "for rejecting HTTP adapter URLs with userinfo. This exception is "
+        "limited to the reviewed immutable test fixture blob."
+    ),
+    (
+        "credential URL",
+        "e48b003899c301ead95e90263435fc0e06cac3d3",
+        "tests/test_specialists.py",
+    ): (
+        "Earlier immutable version of the same makma-ai-os negative test, "
+        "which verifies that the HTTP adapter rejects URL-embedded credentials."
+    ),
+    (
+        "assigned secret",
+        "73555f8035a9a4de97b9000e9fd77ac13a0a36cc",
+        "tests/test_api_contracts.py",
+    ): "Synthetic bearer-auth fixture in mlops-control-plane API contract tests.",
+    (
+        "assigned secret",
+        "b9c094b63587b022a0c642d11f93487edbcfeb3b",
+        "tests/test_api_contracts.py",
+    ): "Earlier immutable synthetic bearer-auth fixture in mlops-control-plane.",
+    (
+        "assigned secret",
+        "1d12945fa3bec01cee7d226f99332e35b74e2bde",
+        "tests/test_api_contracts.py",
+    ): "Earlier immutable synthetic bearer-auth fixture in mlops-control-plane.",
+    (
+        "assigned secret",
+        "1d08dcc8cf9bc1ed99eda5070159715365525c68",
+        "tests/test_deployment_http.py",
+    ): (
+        "Synthetic bearer token in mlops-control-plane's disposable loopback "
+        "HTTP controller test; not an operational credential."
+    ),
+    (
+        "credential URL",
         "e2f5d39824a251970c16008c5a303af9205386db",
         "tests/test_deployments.py",
     ): "Synthetic embedded-credentials rejection fixture in mlops-control-plane PR #11.",
